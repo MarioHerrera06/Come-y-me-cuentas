@@ -1,4 +1,4 @@
-package Servlets;
+package Datos;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
