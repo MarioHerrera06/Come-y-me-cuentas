@@ -18,22 +18,22 @@
 
         
 
-            <h1 id="tituloCuenta"> Nueva Cuenta</h1> 
-            <form id="cuentaNueva" action="cuenta" method="POST">
+            <h1 id="tituloCuenta"> Nuevo Usuario</h1> 
+            <form id="cuentaNueva" action="CrearUsuarioServlet" method="POST">
                 Nombre : 
                 <input type="text" name="nombre"><span class="red"> *</span> <br>
                 <br>
                 Apellido :
                 <input type="text" name="apellidos"><br>
-                <br>
-                Edad :
-                <input type="number" name="edad"><br>
-                <br>
+                <br>               
                 Celular: 
                 <input type="number" name="celular"><br>
                 <br>
                 Correo :
                 <input type="email" name="correo"><br>
+                <br>
+                Nombre de Usuario :
+                <input type="text" name="nomUsuario"><br>
                 <br>
                 Contraseña:
                 <input type="password" name="password"><span class="red"> *</span><br>

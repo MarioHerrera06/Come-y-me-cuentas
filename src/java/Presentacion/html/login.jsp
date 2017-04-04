@@ -20,7 +20,7 @@
             <table>
                 <tr>
                     <td>Usuario:</td>
-                    <td><input type="text" name="user" placeholder="Escriba su usuario"  /></td>
+                    <td><input type="text" name="user" placeholder="Escriba el nombre de su usuario"  /></td>
 
                 <tr>
                     <td>Contraseña:</td>

@@ -1,4 +1,6 @@
-package LogicaDeNegocio;
+package Datos;
+
+import java.util.ArrayList;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -11,17 +13,20 @@ package LogicaDeNegocio;
  * @author Valentina
  */
 public class Usuario {
-    public String nombre;
-    public String apellidos;
-    public String edad;
-    public String celular;
-    public String correo;
-    public String contraseña;
+    private String nombre;
+    private String apellidos;    
+    private String celular;
+    private String correo;
+    private String nomUsuario;
+    private String contraseña;
 
-    public Usuario(String nombre, String apellidos, String edad, String celular, String correo, String contraseña) {
+     public static ArrayList<Comentario> listaComentarios= new ArrayList<>();
+     public static ArrayList<Calificacion> listaCalificacion= new ArrayList<>();
+     
+    public Usuario(String nombre, String apellidos, String nomUsuario, String celular, String correo, String contraseña) {
         this.nombre = nombre;
         this.apellidos = apellidos;
-        this.edad = edad;
+        this.nomUsuario = nomUsuario;
         this.celular = celular;
         this.correo = correo;
         this.contraseña = contraseña;
@@ -43,12 +48,12 @@ public class Usuario {
         this.apellidos = apellidos;
     }
 
-    public String getEdad() {
-        return edad;
+    public String getNomUsuario() {
+        return nomUsuario;
     }
 
-    public void setEdad(String edad) {
-        this.edad = edad;
+    public void setNomUsuario(String nomUsuairo) {
+        this.nomUsuario= nomUsuairo;
     }
 
     public String getCelular() {

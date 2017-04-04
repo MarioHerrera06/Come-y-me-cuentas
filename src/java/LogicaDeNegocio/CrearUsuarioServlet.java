@@ -7,6 +7,7 @@ package LogicaDeNegocio;
  */
 
 
+import Datos.Usuario;
 import com.sun.java.swing.plaf.windows.resources.windows;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -23,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Valentina
  */
 @WebServlet(urlPatterns = {"/cuenta"})
-public class Cuenta extends HttpServlet {
+public class CrearUsuarioServlet extends HttpServlet {
 
   public static ArrayList<Usuario> listaUsuarios = new ArrayList<>();
  
@@ -49,7 +50,7 @@ public class Cuenta extends HttpServlet {
         }
     }
     
-    public static String nombre,contraseña;
+    public static String nomUsuario,contraseña;
    public static HttpServletRequest request;
      public static HttpServletResponse response;
     @Override
@@ -57,13 +58,13 @@ public class Cuenta extends HttpServlet {
             throws ServletException, IOException {
          processRequest(request, response);
        
-                 nombre = request.getParameter("nombre");
-                String apellidos = request.getParameter("apellidos");
-                String edad = request.getParameter("edad");
+                String nombre = request.getParameter("nombre");
+                String apellidos = request.getParameter("apellidos");                
                 String celular = request.getParameter("celular");
                 String correo = request.getParameter("correo");
+                nomUsuario = request.getParameter("nomUsuario");
                 contraseña = request.getParameter("password");
-		Usuario usuario= new Usuario(nombre,apellidos, edad, celular, correo,contraseña);
+		Usuario usuario= new Usuario(nombre,apellidos, nomUsuario, celular, correo,contraseña);
                 listaUsuarios.add(usuario);  
                  RequestDispatcher dispacher = request.getRequestDispatcher("newjsp.jsp");
             dispacher.forward(request, response);
