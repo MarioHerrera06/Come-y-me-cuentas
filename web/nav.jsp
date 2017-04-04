@@ -9,7 +9,9 @@
 <html>
     <nav>
 
-        <div id="navTitulo"> <a href="index.jsp"> Atrevete, experimenta y disfruta </a></div>
+        <div id="navTitulo"> <a href="index.jsp"> Atrevete, experimenta y disfruta </a>
+        <a href="login.jsp"> Login </a>
+        <a href="nuevaCuenta.jsp"> Nueva Cuenta </a></div>
 
 </nav>
 </html>
