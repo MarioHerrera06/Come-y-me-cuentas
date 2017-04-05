@@ -1,14 +1,9 @@
-package LogicaDeNegocio;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 
 
 import Datos.Usuario;
-import com.sun.java.swing.plaf.windows.resources.windows;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -23,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Valentina
  */
-@WebServlet(urlPatterns = {"/cuenta"})
+@WebServlet(urlPatterns = {"/CrearUsuarioServlet"})
 public class CrearUsuarioServlet extends HttpServlet {
 
   public static ArrayList<Usuario> listaUsuarios = new ArrayList<>();
@@ -33,19 +28,11 @@ public class CrearUsuarioServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-//         out.println("<!DOCTYPE html>");
-//            out.println("<html>");
-//            out.println("<head>");
-//            out.println("<title>Servlet borrarContacto</title>");            
-//            out.println("</head>");
-//            out.println("<body>");
-//            out.println("<h1>Usuario Creado... <br> Nombre: "+request.getParameter("nombre") +"<br>Apellido: "+request.getParameter("apellidos")+"<br> Edad: "+request.getParameter("edad")+"<br> Celular: "+request.getParameter("celular")+"<br> Correo: "+request.getParameter("correo") +"</h1>");
-//            out.println("</body>");
-//            out.println("</html>");
+
             
             RequestDispatcher dispacher = request.getRequestDispatcher("login.jsp");
             dispacher.forward(request, response);
-//            
+          
            
         }
     }
@@ -71,14 +58,10 @@ public class CrearUsuarioServlet extends HttpServlet {
             
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
+   
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
+    }
 
 }

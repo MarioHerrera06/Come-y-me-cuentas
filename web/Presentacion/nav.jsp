@@ -11,11 +11,11 @@
 
         <div id="navTitulo"> <a href="index.jsp"> Atrevete, experimenta y disfruta </a>            
 
-            <ul >           
-                <li><a href="login.jsp" style="left: 50%; top: 10%;" >Login</a></li>
-                <li><a href="nuevaCuenta.jsp">Nueva cuenta</a></li>
+            <div id="links">
+            <a href="login.jsp" id="linkLoginNav" >Login</a>
+            <a href="nuevaCuenta.jsp" id="linkNuevaCuentaNav">Nueva cuenta</a>
+            </div>
 
-            </ul>
         </div>
 
     </nav>

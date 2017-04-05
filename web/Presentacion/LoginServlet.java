@@ -1,4 +1,3 @@
-package LogicaDeNegocio;
 
 
 
@@ -27,17 +26,7 @@ public class LoginServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        String usuario = request.getParameter("user");
-//        String clave = request.getParameter("password");
-//        if ("laura".equals(usuario) && "1234".equals(clave)) {
-//            RequestDispatcher dispacher = request.getRequestDispatcher("index.jsp");
-//            dispacher.forward(request, response);
-//        } else {
-//            RequestDispatcher dispacher = request.getRequestDispatcher("login.jsp");
-//            dispacher.forward(request, response);
-//        }
-//    
-//    HttpSession session = request.getSession(true);
+
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out= response.getWriter();
         request.getRequestDispatcher("login.jsp").include(request, response);

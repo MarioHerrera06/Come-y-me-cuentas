@@ -27,7 +27,7 @@ body{
     position: absolute;
     padding: 4%;
     left: 15%;
-    top: 30%;
+    top: 35%;
     border-top-style: double;
     font-family: sans-serif;
 }
@@ -121,7 +121,7 @@ section{
     height: 50%;
     color: white;
     padding: 0%;
-    
+
 }
 
 #loginTitulo{
@@ -131,7 +131,7 @@ section{
 }
 
 /*Restaurante*/
- #plato{
+#plato{
     position: absolute;
     left: 10%;
     top: 33%;
@@ -142,13 +142,13 @@ section{
     position: absolute;
     left: 5%;
     top: 88%;
-    
+
 }
 #agregarComentario{
     position: absolute;
     left: 60%;
     top: 180%;
-    
+
 }
 
 
@@ -203,16 +203,16 @@ aside{
 nav{
     position: absolute;
     top: 25%;
-    width: 70%;
+    width: 80%;
     left:10%;
     border: orange;
     border-style: double;
     border-left:  double;
     border-right: double;
-    height: 5%;
+    height: 7%;
     opacity: .60;
     color: white;
-    
+
 }
 
 #navTitulo{
@@ -228,45 +228,77 @@ nav{
     top: 15%;
 }
 
+
+#links{
+    position: relative;
+    top: 0%;
+    right: 0%;
+
+}
 
 
 /*slider*/
-.slider{
-    width: 80%;
-    height: 500px;
-    margin: auto;
-    overflow: hidden;
-}
-
-.slider ul{
-    display: flex;
-    padding: 0;
-    width: 400%;
+.textoImagen{
+    position:absolute;
+    left:0%;
+    top:20%;
+    background-color: black;
+    font-size: 28px;
+   padding-left: 1%;
+    padding-top: 1%;
+    padding-right: 1%;
+    color: orange;
+    opacity: .90;
     
-    animation: cambio 20s infinite alternate;
-    animation-timing-function: ease-in;
 }
 
-.slider li{
-    width: 100%;
-    list-style: none;
+.cajaImagenes{
+    left: 60%;
+    max-width:60%;
+    
 }
 
-.slider img{
-    width: 100%;
+.botonIzquierda{
+    position: absolute;
+    background-color: black;
+    color: white;
+    border: none;
+    top: 70%;
+    height: 30%;
 }
+
+.botonDerecha{
+    position: absolute;
+    background-color: black;
+    color: white;
+    border: none;
+    top: 70%;
+    height: 30%;
+    right: 40%;
+}
+
+.botonDerecha:hover{
+    color: black;
+    background-color: white;
+}
+
+.botonIzquierda:hover{
+    color: black;
+    background-color: white;
+}
+
 
 @keyframes cambio {
     0% {margin-left:0;}
     20%{margin-left:0;}
-    
+
     25%{margin-left: -100%}
     45%{margin-left: -100%;}
-    
+
     50%{margin-left: -200%;}
     70%{margin-left: -200%;}
-    
+
     75%{margin-left: -300%;}
     100%{margin-left: -300%;}
-    
+
 }
