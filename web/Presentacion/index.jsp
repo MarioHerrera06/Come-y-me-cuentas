@@ -9,29 +9,29 @@
 <html>
 
     <%@include file="header.jsp" %>
-    <%@include file="nav.jsp" %>
+<%@include file="nav.jsp" %>
     <%@include file="aside.jsp" %>
 
     <link href="styles/Style.css" rel="stylesheet" type="text/css" >
-
     <title >Come y me cuentas</title>
-    
-   
+
+
+
 
     <body>
+        
 
-  
 
         <section>
             <h1 style="color:grey;">Restaurantes preferidos</h1>
-          
-           
+
+
             <div class="slider" style="width: 700px; height: 400px;">
                 <ul>
                     <li><a href="ElCorral.jsp"><img src="img/Corral.jpg" alt=""></a></li>
                     <li><a href="Crepes.jsp"><img src="img/Crepes.jpg" alt=""></a></li>
                     <li><a href="Hard Rock Cafe.jsp"><img src="img/HardRock.png" alt=""></a></li>
-                  
+
 
             </div>
 
@@ -41,5 +41,5 @@
             </ul>
 
         </section>
-   
+
 </html>

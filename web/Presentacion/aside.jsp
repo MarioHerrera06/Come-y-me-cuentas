@@ -10,17 +10,7 @@
     
      <link href="styles/Style.css" rel="stylesheet" type="text/css">
     <aside>
-        <h2 class="titulos"> Lista de lugares: </h2> 
-        <ul>
-
-
-            <li><a href="">Chapinero</a></li>
-            <li><a href="">Candelaria</a></li>
-            <li><a href="">Castilla</a></li>
-            <li><a href="">Restrepo</a></li>        
-
-
-        </ul>
+       
         <h2 class="titulos"> Tipos de comida: </h2>
         <ul>
 
@@ -36,6 +26,7 @@
             <li><a href="">Agregar</a></li>
 
             <li><a href="">Recomendar</a></li>
+            </ul>
     </aside>
 
 </html>
