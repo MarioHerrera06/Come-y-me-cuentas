@@ -23,7 +23,7 @@
 
         </ul> 
         <ul>
-            <li><a href="">Agregar</a></li>
+            <li><a href="nuevoRestaurante.jsp">Agregar Restaurnate</a></li>
 
             <li><a href="">Recomendar</a></li>
             </ul>

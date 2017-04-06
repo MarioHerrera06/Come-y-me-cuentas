@@ -1,0 +1,326 @@
+body{
+    background-color: black;
+    width: 1500px;
+}
+
+/*formulario login */
+#formularioLogin{
+    color: white;
+    border-color: orange;
+    border-bottom-style: double;
+    position: absolute;
+    padding: 4%;
+    left: 36%;
+    top: 28%;
+    border-top-style: double;
+    font-family: sans-serif;
+
+}
+.red{
+    color:#ff0000;      
+}
+
+#cuentaNueva{
+    color: white;
+    border-color: orange;
+    border-bottom-style: double;
+    position: absolute;
+    padding: 4%;
+    left: 30%;
+    top: 45%;
+    border-top-style: double;
+    font-family: sans-serif;
+}
+
+#nuevoRestaurante{
+    color: white;
+    border-color: orange;
+    border-bottom-style: double;
+    position: absolute;
+    padding: 4%;
+    left: 30%;
+    top: 45%;
+    border-top-style: double;
+    font-family: sans-serif;
+}
+
+
+#botonLogin {
+    font-family: sans-serif;
+    display: inline;
+    border: none;
+    border-radius: 50px;
+    color: white;
+    background-color: orange;
+    text-align: center;
+    font-size: 15px;    
+    width: 100px;
+    height: 30px;
+    margin: 5px;       
+    vertical-align: middle;
+    align-self: center;
+    top: 65%;
+    position: absolute;
+    transition: all 0.5s;
+}
+
+#botonCuenta {
+    font-family: sans-serif;
+    display: inline;
+    border: none;
+    border-radius: 50px;
+    color: white;
+    background-color: orange;
+    text-align: center;
+    font-size: 15px;    
+    width: 100px;
+    height: 30px;
+    margin: 5px;       
+    vertical-align: middle;
+    align-self: center;
+    top: 80%;
+    position: absolute;
+    transition: all 0.5s;
+}
+
+
+#botonLogin:hover{
+    background-color: white;
+    color: black;
+}
+#botonCuenta:hover{
+    background-color: white;
+    color: black;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+    font-family:sans-serif;
+    font-size: 0.9em;
+}
+
+a:hover{
+    color: orange;
+}
+
+#nuevaCuenta{
+    position: absolute;
+    top: 60%;
+    left: 46%;
+}
+
+#titulo{
+    position: absolute;
+    top: 8%  ;
+    left: 31%;
+}
+
+#tituloCuenta{
+    position: absolute;
+    color: orange;
+    font-style:  italic;
+    top: 35%  ;
+    left: 40%;
+}
+#tituloRestaurante{
+    position: absolute;
+    color: orange;
+    font-style:  italic;
+    top: 35%  ;
+    left: 40%;
+}
+
+
+
+
+section{
+    background-color: black;
+    position: absolute;
+    left: 32%;
+    top: 33%;
+    width: 65%;
+    height: 50%;
+    color: white;
+    padding: 0%;
+
+}
+
+#loginTitulo{
+    position: absolute;
+    top: 13%;
+    left: 32%;
+}
+
+/*Restaurante*/
+#plato{
+    position: absolute;
+    left: 10%;
+    top: 33%;
+    width: 50%;
+    height: 50%;
+}
+#informacion{
+    position: absolute;
+    left: 5%;
+    top: 88%;
+
+}
+#agregarComentario{
+    position: absolute;
+    left: 60%;
+    top: 180%;
+
+}
+
+
+
+/*HEADER*/
+
+header{
+    position: absolute;
+    width: 1350px;
+    height: 30%;
+}
+
+#headerTitulo{
+    position: absolute;
+    left: 10%;
+    top: 20%;
+}
+
+#linkLoginHeader{
+    position: absolute;
+    right: 0%;
+    top: 0%;
+}
+
+
+/*ASIDE*/
+
+aside{
+    padding: 10px;
+    background-color: black;
+    position: absolute;
+    left: 10%;
+    top: 35%;
+    width: 20%;
+    height: 60%;
+    border: orange;
+    border-style: double;
+    color: white;   
+    opacity: .60;
+    border-left: none;
+    border-right: none;
+}
+
+.titulos{
+    color: orange;
+    font-family: sans-serif;
+    opacity: 1;
+}
+
+/* nav */
+
+nav{
+    position: absolute;
+    top: 25%;
+    width: 80%;
+    left:10%;
+    border: orange;
+    border-style: double;
+    border-left:  double;
+    border-right: double;
+    height: 7%;
+    opacity: .60;
+    color: white;
+
+}
+
+#navTitulo{
+    color: white;
+    position: absolute;
+    left: 5%;
+    top: 15%;
+}
+#navTitulo{
+    color: white;
+    position: absolute;
+    left: 5%;
+    top: 15%;
+}
+
+
+#links{
+    position: relative;
+    top: 0%;
+    right: 0%;
+
+}
+
+
+/*slider*/
+.textoImagen{
+    position:absolute;
+    left:0%;
+    top:20%;
+    background-color: black;
+    font-size: 28px;
+   padding-left: 1%;
+    padding-top: 1%;
+    padding-right: 1%;
+    color: orange;
+    opacity: .90;
+    
+}
+
+.cajaImagenes{
+    left: 60%;
+    max-width:60%;
+    
+}
+
+.botonIzquierda{
+    position: absolute;
+    background-color: black;
+    color: white;
+    border: none;
+    top: 70%;
+    height: 30%;
+}
+
+.botonDerecha{
+    position: absolute;
+    background-color: black;
+    color: white;
+    border: none;
+    top: 70%;
+    height: 30%;
+    right: 40%;
+}
+
+.botonDerecha:hover{
+    color: black;
+    background-color: white;
+}
+
+.botonIzquierda:hover{
+    color: black;
+    background-color: white;
+}
+
+
+@keyframes cambio {
+    0% {margin-left:0;}
+    20%{margin-left:0;}
+
+    25%{margin-left: -100%}
+    45%{margin-left: -100%;}
+
+    50%{margin-left: -200%;}
+    70%{margin-left: -200%;}
+
+    75%{margin-left: -300%;}
+    100%{margin-left: -300%;}
+
+}
