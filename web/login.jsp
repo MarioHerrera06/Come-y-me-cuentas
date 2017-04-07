@@ -16,7 +16,7 @@
 
         <img id="loginTitulo" src="" width="500" height="100" alt="Come y me cuentas" />
 
-        <form id="formularioLogin" action="loginServlet" method="POST">
+        <form id="formularioLogin" action="LoginServlet" method="POST">
             <table>
                 
                 <tr>
