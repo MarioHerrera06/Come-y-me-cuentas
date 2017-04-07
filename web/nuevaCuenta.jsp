@@ -37,11 +37,11 @@
             </tr>
             <tr>
                 <td>Nombre de Usuario :</td>
-                <td><input type="text" name="nombreUsuario"><span class="red"> *</span></td>
+                <td><input type="text" name="nombreUsuario" required><span class="red"> *</span></td>
             </tr>
             <tr>
                 <td> Contraseña :</td>
-            <td><input type="password" name="password"><span class="red"> *</span></td>
+                <td><input type="password" name="password" required=""><span class="red"> *</span></td>
             </tr>
 
         </table>            

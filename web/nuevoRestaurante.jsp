@@ -21,19 +21,19 @@
         <table>
             <tr>
                 <td>Nombre :</td>
-                <td> <input type="text" name="nombreRestaurante" ></td>
+                <td> <input type="text" name="nombreRestaurante" required></td>
             </tr>
             <tr>
                 <td>Direccion :</td> 
-                <td> <input type="text" name="direccion"></td>
+                <td> <input type="text" name="direccion"required></td>
             </tr>
             <tr> 
                 <td>Telefono :</td>
-                <td><input type="number" name="telefono"></td>
+                <td><input type="number" name="telefono" required=""></td>
             </tr>
             <tr>
                 <td>Horario :</td>
-                <td><input type="text" name="horario"></td>
+                <td><input type="text" name="horario" required=""></td>
             </tr>
             <tr>
                 <td>Tipo de comida principal:</td>
