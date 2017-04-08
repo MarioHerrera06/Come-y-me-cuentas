@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package BaseDeDatos;
 
 import Datos.Restaurante;
@@ -31,7 +27,7 @@ public class Conexion {
         
         try{
         Class.forName("com.mysql.jdbc.Driver");
-        conexion = DriverManager.getConnection("jdbc:mysql://localhost/proyecto?user=root&password=1234");
+        conexion = DriverManager.getConnection("jdbc:mysql://localhost/proyecto?user=root&password=12345");
         statement = conexion.createStatement();
         }catch(ClassNotFoundException ex){
             System.out.println("Clase no encontrada");
@@ -44,10 +40,13 @@ public class Conexion {
     
 public void agregarRestaurante(Restaurante restaurante) {
    try{ 
-    agregar = conexion.prepareStatement("insert into restaurante (nom_restaurante,direccion,telefono) values(?,?,?)");
+    agregar = conexion.prepareStatement("insert into restaurante (nom_restaurante,direccion,telefono,hora_inicio,hora_fin,tipo_comida) values(?,?,?,?,?,?)");
     agregar.setString(1, restaurante.getNombre());
     agregar.setString(2, restaurante.getDireccion());
     agregar.setLong(3, restaurante.getTelefono());
+    agregar.setLong(4, restaurante.getHoraInicio());
+    agregar.setLong(5, restaurante.getHoraFin());
+    agregar.setString(6, restaurante.getTipoComida());
     agregar.executeUpdate();
     agregar.close();
        System.out.println("se agrego");

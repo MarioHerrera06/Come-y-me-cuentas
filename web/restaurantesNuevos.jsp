@@ -1,8 +1,4 @@
-<%-- 
-    Document   : restaurantesNuvos
-    Created on : 8/04/2017, 11:18:49 AM
-    Author     : Valentina
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

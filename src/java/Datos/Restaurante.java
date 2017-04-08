@@ -7,31 +7,63 @@ package Datos;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Valentina
- */
 public class Restaurante {
-    
+
     private int id;
     private String nombre;
     private String direccion;
     private int telefono;
-   // private Horario horario;
-   // private TipoComida tipoComidaPrincipal;
+    private int horaInicio;
+    private int horaFin;
+    private String horario;
+    private String tipoComida;
     
     public static ArrayList<Calificacion> listaCalificacion;
     public static ArrayList<Comentario> listaComentarios;
-    
-   
-    
-    public Restaurante(String nombre, String direccion, int telefono) {
+
+    public Restaurante(String nombre, String direccion, int telefono, int horaInicio, int horaFin, String horario,String tipoComida) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
-//        this.horario = horario;
-//        this.tipoComidaPrincipal = tipoComidaPrincipal;
+        this.horaInicio = horaInicio;
+        this.horaFin = horaFin;
+        this.horario = horario;
+        this.tipoComida=tipoComida;
     }
+
+    public int getHoraInicio() {
+        return horaInicio;
+    }
+
+    public void setHoraInicio(int horaInicio) {
+        this.horaInicio = horaInicio;
+    }
+
+    public int getHoraFin() {
+        return horaFin;
+    }
+
+    public void setHoraFin(int horaFin) {
+        this.horaFin = horaFin;
+    }
+
+    public String getHorario() {
+        return horario;
+    }
+
+    public void setHorario(String horario) {
+        this.horario = horario;
+    }
+
+    public String getTipoComida() {
+        return tipoComida;
+    }
+
+    public void setTipoComida(String tipoComida) {
+        this.tipoComida = tipoComida;
+    }
+
+    
 
     public int getId() {
         return id;
@@ -40,7 +72,6 @@ public class Restaurante {
     public void setId(int id) {
         this.id = id;
     }
-    
 
     public String getNombre() {
         return nombre;
@@ -73,7 +104,6 @@ public class Restaurante {
 //    public void setHorario(Horario horario) {
 //        this.horario = horario;
 //    }
-
 //    public TipoComida getTipoComidaPrincipal() {
 //        return tipoComidaPrincipal;
 //    }
@@ -82,6 +112,4 @@ public class Restaurante {
 //        this.tipoComidaPrincipal = tipoComidaPrincipal;
 //    }
 //    
-    
-    
 }
