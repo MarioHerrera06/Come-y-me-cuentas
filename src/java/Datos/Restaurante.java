@@ -13,22 +13,34 @@ import java.util.ArrayList;
  */
 public class Restaurante {
     
+    private int id;
     private String nombre;
     private String direccion;
     private int telefono;
-    private Horario horario;
-    private TipoComida tipoComidaPrincipal;
+   // private Horario horario;
+   // private TipoComida tipoComidaPrincipal;
     
     public static ArrayList<Calificacion> listaCalificacion;
     public static ArrayList<Comentario> listaComentarios;
-
-    public Restaurante(String nombre, String direccion, int telefono, Horario horario, TipoComida tipoComidaPrincipal) {
+    
+   
+    
+    public Restaurante(String nombre, String direccion, int telefono) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
-        this.horario = horario;
-        this.tipoComidaPrincipal = tipoComidaPrincipal;
+//        this.horario = horario;
+//        this.tipoComidaPrincipal = tipoComidaPrincipal;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
 
     public String getNombre() {
         return nombre;
@@ -54,22 +66,22 @@ public class Restaurante {
         this.telefono = telefono;
     }
 
-    public Horario getHorario() {
-        return horario;
-    }
+//    public Horario getHorario() {
+//        return horario;
+//    }
+//
+//    public void setHorario(Horario horario) {
+//        this.horario = horario;
+//    }
 
-    public void setHorario(Horario horario) {
-        this.horario = horario;
-    }
-
-    public TipoComida getTipoComidaPrincipal() {
-        return tipoComidaPrincipal;
-    }
-
-    public void setTipoComidaPrincipal(TipoComida tipoComidaPrincipal) {
-        this.tipoComidaPrincipal = tipoComidaPrincipal;
-    }
-    
+//    public TipoComida getTipoComidaPrincipal() {
+//        return tipoComidaPrincipal;
+//    }
+//
+//    public void setTipoComidaPrincipal(TipoComida tipoComidaPrincipal) {
+//        this.tipoComidaPrincipal = tipoComidaPrincipal;
+//    }
+//    
     
     
 }

@@ -17,7 +17,7 @@
 
 
     <h1 id="tituloRestaurante"> Nuevo Restaurante</h1> 
-    <form id="nuevoRestaurante" action="nuevoRestauranteServlet" method="POST">
+    <form id="nuevoRestaurante" action="AgregarRestauranteServlet" method="POST">
         <table>
             <tr>
                 <td>Nombre :</td>
@@ -25,7 +25,7 @@
             </tr>
             <tr>
                 <td>Direccion :</td> 
-                <td> <input type="text" name="direccion"required></td>
+                <td> <input type="text" name="direccion" required></td>
             </tr>
             <tr> 
                 <td>Telefono :</td>

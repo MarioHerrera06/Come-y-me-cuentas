@@ -26,7 +26,7 @@ body{
     border-bottom-style: double;
     position: absolute;
     padding: 4%;
-    left: 30%;
+    left: 10%;
     top: 45%;
     border-top-style: double;
     font-family: sans-serif;
@@ -120,8 +120,8 @@ a:hover{
     position: absolute;
     color: orange;
     font-style:  italic;
-    top: 35%  ;
-    left: 40%;
+    top: 20%  ;
+    left: 20%;
 }
 #tituloRestaurante{
     position: absolute;
@@ -137,8 +137,8 @@ a:hover{
 section{
     background-color: black;
     position: absolute;
-    left: 32%;
-    top: 33%;
+    left: 40%;
+    top: 40%;
     width: 65%;
     height: 50%;
     color: white;
@@ -203,7 +203,7 @@ aside{
     background-color: black;
     position: absolute;
     left: 10%;
-    top: 35%;
+    top: 45%;
     width: 20%;
     height: 60%;
     border: orange;
@@ -231,7 +231,7 @@ nav{
     border-style: double;
     border-left:  double;
     border-right: double;
-    height: 7%;
+    height: 10%;
     opacity: .60;
     color: white;
 
@@ -243,12 +243,7 @@ nav{
     left: 5%;
     top: 15%;
 }
-#navTitulo{
-    color: white;
-    position: absolute;
-    left: 5%;
-    top: 15%;
-}
+
 
 
 #links{

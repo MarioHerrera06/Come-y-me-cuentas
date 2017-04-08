@@ -37,7 +37,7 @@
             </tr>
             <tr>
                 <td>Nombre de Usuario :</td>
-                <td><input type="text" name="nombreUsuario" required><span class="red"> *</span></td>
+                <td><input type="text" name="nombreUsuario" required=""><span class="red"> *</span></td>
             </tr>
             <tr>
                 <td> Contraseña :</td>
