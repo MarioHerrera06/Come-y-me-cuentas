@@ -111,6 +111,26 @@ public class Restaurante {
     public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
+    
+    public String getHoraInicioClasificar(){
+        if(horaInicio<=12){
+            return horaInicio + ":00 am";
+        }else{
+        
+        return horaInicio + ":00 pm";
+        }
+    }
+    
+    public String getHoraFinClasificar(){
+        if(horaFin>12){
+            return horaFin + ":00 pm";
+        }
+        else {
+            return horaFin + ":00 am";
+        }
+        
+    }
+    
 
 //    public Horario getHorario() {
 //        return horario;

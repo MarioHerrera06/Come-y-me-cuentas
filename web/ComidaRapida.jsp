@@ -1,8 +1,14 @@
+<%-- 
+    Document   : Mexicana
+    Created on : 09-abr-2017, 17:04:11
+    Author     : Produccion
+--%>
 
 
-<%@page import="java.util.ArrayList"%>
 <%@page import="Datos.Restaurante"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="BaseDeDatos.Conexion"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,12 +20,12 @@
     <link href="styles/Style.css" rel="stylesheet" type="text/css" >
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title >Come y me cuentas</title>
-
     <body>
+
         <section>
-            <h1>Restaurantes </h1>
+            <h1 id="titulosRestaurantes"style="color: grey; border-bottom: double; border-color: orange; border-left: double; padding-left: 4%;" >Restaurantes de comida rapida </h1>
             <% Conexion conec = new Conexion();
-                ArrayList<Restaurante> listaRestaurantes = conec.mostrarRestaurante();
+                ArrayList<Restaurante> listaRestaurantes = conec.mostrarRestauranteRandom("Comida rapida");
                 for (int i = 0; i < listaRestaurantes.size(); i++) {
 
             %>
@@ -48,9 +54,4 @@
         </section>
 
     </body>
-
-
-
-
 </html>
-

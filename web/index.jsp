@@ -1,8 +1,8 @@
-<%-- 
-    Document   : index
-    Created on : 9/03/2017, 05:08:02 PM
-    Author     : Valentina
---%>
+
+
+<%@page import="Datos.Restaurante"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="BaseDeDatos.Conexion"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -15,6 +15,7 @@
     <link href="styles/Style.css" rel="stylesheet" type="text/css" >
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title >Come y me cuentas</title>
+
 
 
 
@@ -37,22 +38,45 @@
                 </div>
 
                 <div class="mySlides">
+                    <a href="Hard Rock Cafe.jsp"><img src="img/HardRock.png" alt="" style="width:100%" ></a>    
+                    <div class="textoImagen">
+                        HardRock
+                    </div>
+                </div>
+                
+                <div class="mySlides">
                     <a href="Crepes.jsp"><img src="img/Crepes.jpg" alt="" style="width:100%" ></a>    
                     <div class="textoImagen">
                         Crepes And Waffles
                     </div>
                 </div>
+
                 
-                <div class="mySlides">
-                   <a href="Hard Rock Cafe.jsp"><img src="img/HardRock.png" alt="" style="width:100%" ></a>    
-                    <div class="textoImagen">
-                       HardRock
-                    </div>
-                </div>
             </div>
 
             <button class="botonIzquierda" onclick="plusDivs(-1)">&#10094;</button>
             <button class="botonDerecha" onclick="plusDivs(+1)">&#10095;</button>
+
+            <h1 class="titulos" style="opacity: .70;">Todos los restaurantes</h1>
+
+            <% Conexion conec = new Conexion();
+
+                ArrayList<Restaurante> listaRestaurantes = conec.mostrarRestaurante();
+                System.out.println(listaRestaurantes.size());
+                for (int i = 0; i < listaRestaurantes.size(); i++) {
+
+            %>
+
+            <div id="listaRestaurantesIndex">
+                <ul>
+                    <li  id="listaPrincipal" type="disc" onclick="plusDivs(<%=i+1%>)"><a><%=listaRestaurantes.get(i).getNombre()%></a></li>
+                </ul>
+            </div>
+            <%}%>
+
+
+
+
 
             <script>
                 var slideIndex = 1;
@@ -62,6 +86,7 @@
                     showDivs(slideIndex += n);
                 }
 
+                
                 function showDivs(n) {
                     var i;
                     var x = document.getElementsByClassName("mySlides");

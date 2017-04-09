@@ -14,12 +14,12 @@
         <h2 class="titulos"> Tipos de comida: </h2>
         <ul>
 
-            <li><a href="">Mexicana</a></li>
-            <li><a href="">China</a></li>
-            <li><a href="">Italiana</a></li>
-            <li><a href="">Francesa</a></li>
-            <li><a href="">Americana</a></li>
-            <li><a href="">Comida rapida</a></li>
+            <li><a href="Mexicana.jsp">Mexicana</a></li>
+            <li><a href="China.jsp">China</a></li>
+            <li><a href="Italiana.jsp">Italiana</a></li>
+            <li><a href="Francesa.jsp">Francesa</a></li>
+            <li><a href="Americana.jsp">Americana</a></li>
+            <li><a href="ComidaRapida.jsp">Comida rapida</a></li>
 
         </ul> 
         <ul>
