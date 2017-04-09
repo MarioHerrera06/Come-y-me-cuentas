@@ -160,10 +160,13 @@ section{
     width: 50%;
     height: 50%;
 }
-#informacion{
+.informacion{
     position: absolute;
+    width:100%;
+    height: 100%;
     left: 5%;
     top: 88%;
+    text-align: justify;
 
 }
 #agregarComentario{

@@ -20,6 +20,10 @@
                 <td> <input type="text" name="nombreRestaurante" required></td>
             </tr>
             <tr>
+                <td>Descripcion:</td> 
+                <td> <input type="text" name="descripcion" required></td>
+            </tr>
+            <tr>
                 <td>Direccion :</td> 
                 <td> <input type="text" name="direccion" required></td>
             </tr>
@@ -36,7 +40,7 @@
                         <option value="3">3</option>
                         <option value="4">4</option> 
                         <option value="5">5</option> 
-                        <option value="6">6</option> 
+                        <option value="6">6</option>  
                         <option value="7">7</option> 
                         <option value="8">8</option> 
                         <option value="9">9</option>
@@ -110,14 +114,18 @@
                 <td>Tipo de comida principal:</td>
                 <td><select name="tipoComida" required>
                         <option selected value="0"> Elige una opción </option>
-                        <option value="1">Mexicana</option> 
-                        <option value="2">China</option> 
-                        <option value="3">Italiana</option>
-                        <option value="4">Francesa</option> 
-                        <option value="5">Americana</option> 
-                        <option value="6">Comida rapida</option> 
-                    </select></td>
+                        <option value="Mexicana">Mexicana</option> 
+                        <option value="China">China</option> 
+                        <option value="Italiana">Italiana</option>
+                        <option value="Francesa">Francesa</option> 
+                        <option value="Americana">Americana</option> 
+                        <option value="Comida rapida">Comida rapida</option> 
+                    </select></td>  
             </tr>
+            <tr>
+                    <td>Imagen en JPG:</td>
+                    <td><input type="file" name="imgRestaurante" size="50"/></td>
+                </tr >
 
 
 

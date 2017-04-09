@@ -26,15 +26,17 @@ public class AgregarRestauranteServlet extends HttpServlet {
         this.request = request;
         this.response = response;
         String nombre = request.getParameter("nombreRestaurante");
+        String descripcion = request.getParameter("descripcion");
         String direccion = request.getParameter("direccion");
         int telefono = Integer.parseInt(request.getParameter("telefono"));
         int horaInicio = Integer.parseInt(request.getParameter("horaInicio"));
         int horaFin = Integer.parseInt(request.getParameter("horaFin"));
         String horario = request.getParameter("horario");
         String tipoComida = request.getParameter("tipoComida");
-        Restaurante restaurante = new Restaurante(nombre, direccion, telefono, horaInicio, horaFin, horario, tipoComida);
+       // System.out.println(request.getParameter("imgRestaurante"));
+        Restaurante restaurante = new Restaurante(nombre, direccion, telefono, horaInicio, horaFin, horario, tipoComida,descripcion);
         conexion.agregarRestaurante(restaurante);
-        RequestDispatcher dispacher = request.getRequestDispatcher("index.jsp");
+        RequestDispatcher dispacher = request.getRequestDispatcher("restaurantesNuevos.jsp");
         dispacher.forward(request, response);
     }
 

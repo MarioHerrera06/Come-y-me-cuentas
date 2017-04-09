@@ -5,6 +5,8 @@
  */
 package Datos;
 
+import java.awt.Image;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 public class Restaurante {
@@ -16,12 +18,15 @@ public class Restaurante {
     private int horaInicio;
     private int horaFin;
     private String horario;
-    private String tipoComida;
+    private String tipoComida;    
+    private String descripcion;
+  //  Image imagen;
     
     public static ArrayList<Calificacion> listaCalificacion;
     public static ArrayList<Comentario> listaComentarios;
 
-    public Restaurante(String nombre, String direccion, int telefono, int horaInicio, int horaFin, String horario,String tipoComida) {
+    public Restaurante(){}
+    public Restaurante(String nombre, String direccion, int telefono, int horaInicio, int horaFin, String horario,String tipoComida,String descripcion) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
@@ -29,6 +34,8 @@ public class Restaurante {
         this.horaFin = horaFin;
         this.horario = horario;
         this.tipoComida=tipoComida;
+        this.descripcion = descripcion;
+       
     }
 
     public int getHoraInicio() {
@@ -37,6 +44,14 @@ public class Restaurante {
 
     public void setHoraInicio(int horaInicio) {
         this.horaInicio = horaInicio;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public int getHoraFin() {
