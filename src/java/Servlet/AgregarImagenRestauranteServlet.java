@@ -25,11 +25,12 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
  *
  * @author Valentina
  */
+
 @WebServlet(urlPatterns = {"/AgregarImagenRestauranteServlet"})
 public class AgregarImagenRestauranteServlet extends HttpServlet {
-private ServletFileUpload upload;
-private DiskFileItemFactory fileItem;
-private List<FileItem> items;
+private ServletFileUpload ServletFileUpload;
+private DiskFileItemFactory DiskFileItemFactory ;
+private List<FileItem> listaItems;
 public String imgUrl;
 Conexion conexion = new Conexion();
     /**
@@ -62,16 +63,16 @@ Conexion conexion = new Conexion();
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        fileItem = new DiskFileItemFactory();
-        upload = new ServletFileUpload(fileItem);
+        DiskFileItemFactory= new DiskFileItemFactory();
+        ServletFileUpload = new ServletFileUpload(DiskFileItemFactory);
         try{
-            items=upload.parseRequest(request);
+            listaItems=ServletFileUpload.parseRequest(request);
         }catch(FileUploadException ex){
             System.out.println("error 1");
         }
         System.out.println(":)");
-        for(int i=0;i<items.size();i++){
-            FileItem item = (FileItem)items.get(i);
+        for(int i=0;i<listaItems.size();i++){
+            FileItem item = (FileItem)listaItems.get(i);
             if(!item.isFormField()){
                  imgUrl="C:\\Users\\LauraValentina\\Music\\COMEYMECUENTAS\\Come-y-me-cuentas\\web\\img\\"+item.getName();
                 File file = new File(imgUrl);
