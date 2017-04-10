@@ -1,9 +1,8 @@
-<%-- 
-    Document   : Crepes
-    Created on : 18/03/2017, 09:26:22 PM
-    Author     : Valentina
---%>
 
+
+<%@page import="java.util.ArrayList"%>
+<%@page import="Datos.Restaurante"%>
+<%@page import="BaseDeDatos.Conexion"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,30 +13,45 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
          <link href="styles/Style.css" rel="stylesheet" type="text/css">
 
-        <title>Restaurante</title>
+        <title>Crepes And Wafles</title>
     </head>
     <body>
-         <section>
+        <section>
 
-             <img  id = "plato" src ="img/Crepes.jpg" />   
+            <% Conexion conec = new Conexion();
+                ArrayList<Restaurante> listaRestaurantes = conec.mostrarRestaurantesPredeterminados("Crepes");
+                for (int i = 0; i < listaRestaurantes.size(); i++) {
 
-            <h2 id="titulo"> Crepes & Waffles</h2> 
-            <p id="informacion"> Restaurante de comida Apta para vegetarianos.<br>
-                <br> Cocina sorprendentemente colombiana. Sabores de la biodiversidad colombiana alimentados por la investigación de la tradición cultural del país. Mini mal es un ejercicio de investigacióncreación gastronómica con los 
-                recursos de la geografía colombiana que se nutre del respeto y aprecio que sentimos por la diversidad de nuestra tradición cultural y que busca señalar el valor inadvertido de habitar uno de los países mas 
-                diversos en formas de vida del planeta y de disfrutar un paisaje humano tan lleno de matices.<br>
-                <br> Ocasiones especiales, Comida local, Familias con niños <br>
-
-           <br> Direcciones: Bogotá, Cundinamarca<br>
-           Chapinero    Carrera 9 No 73-33<br>
-           Teléfono: 2112530 <br> 
-           
-            </p>
-            <br><ul id="agregarComentario"> <li><a href="">Agregar Comentario</a></li></ul>
-           
-
+            %>
+            <div id="campoRestaurante">
                 
-            
+                <h1 class="titulos" style="opacity: .70"><%=listaRestaurantes.get(i).getNombre()%></h1>
+                
+                <img class="imagen" src="./img/<%=listaRestaurantes.get(i).getImagen()%>">
+
+                <div id="getDescripcion"><strong>Descripcion: </strong><%=listaRestaurantes.get(i).getDescripcion()%></div>
+
+                <div id="getDireccion"><strong>Direccion: </strong><%=listaRestaurantes.get(i).getDireccion()%></div>
+
+                <div id="getTelefono"><strong>Telefono: </strong><%=listaRestaurantes.get(i).getTelefono()%></div>
+
+                <div id="getHoraInicio"><strong>Hora de apertura: </strong><%=listaRestaurantes.get(i).getHoraInicioClasificar()%></div>
+
+                <div id="getHoraFin"><strong>Hora de cierre: </strong><%=listaRestaurantes.get(i).getHoraFinClasificar()%></div>
+
+                <div id="getHorario"><strong>Horario de atencion: </strong><%=listaRestaurantes.get(i).getHorario()%></div>
+
+                <div id="getTipoComida"><strong>Tipo principal de comida: </strong><%=listaRestaurantes.get(i).getTipoComida()%></div>
+
+            </div>
+
+
+            <%}%>
+            <br><ul id="agregarComentario"> <li><a href="">Agregar Comentario</a></li></ul>
+
+
+
+
         </section>
     </body>
 </html>

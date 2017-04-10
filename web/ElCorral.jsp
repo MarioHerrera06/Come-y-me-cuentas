@@ -1,8 +1,3 @@
-<%-- 
-    Document   : Hard Rock Cafe
-    Created on : 18/03/2017, 09:30:44 PM
-    Author     : Valentina
---%>
 
 <%@page import="java.util.ArrayList"%>
 <%@page import="Datos.Restaurante"%>
@@ -15,15 +10,15 @@
     <%@include file="aside.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="styles/Style.css" rel="stylesheet" type="text/css">
+         <link href="styles/Style.css" rel="stylesheet" type="text/css">
 
-        <title>Hard Rock Cafe</title>
+        <title>El corral</title>
     </head>
     <body>
         <section>
 
             <% Conexion conec = new Conexion();
-                ArrayList<Restaurante> listaRestaurantes = conec.mostrarRestaurantesPredeterminados("Hard Rock Cafe");
+                ArrayList<Restaurante> listaRestaurantes = conec.mostrarRestaurantesPredeterminados("El Corral");
                 for (int i = 0; i < listaRestaurantes.size(); i++) {
 
             %>

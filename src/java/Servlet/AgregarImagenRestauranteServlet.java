@@ -1,11 +1,5 @@
 package Servlet;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 import BaseDeDatos.Conexion;
 import java.io.File;
 import java.io.IOException;
@@ -21,10 +15,8 @@ import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-/**
- *
- * @author Valentina
- */
+
+
 
 @WebServlet(urlPatterns = {"/AgregarImagenRestauranteServlet"})
 public class AgregarImagenRestauranteServlet extends HttpServlet {
@@ -33,15 +25,8 @@ private DiskFileItemFactory DiskFileItemFactory ;
 private List<FileItem> listaItems;
 public String imgUrl;
 Conexion conexion = new Conexion();
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+   
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
