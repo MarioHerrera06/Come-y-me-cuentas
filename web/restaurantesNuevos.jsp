@@ -23,9 +23,11 @@
                 for (int i = 0; i < listaRestaurantes.size(); i++) {
 
             %>
+           
             <div id="campoRestaurante">
+                
                 <h1 class="titulos" style="opacity: .70"><%=listaRestaurantes.get(i).getNombre()%></h1>
-
+                <img class="imagen" src="./img/<%=listaRestaurantes.get(i).getImagen()%>">
                 <div id="getDescripcion"><strong>Descripcion: </strong><%=listaRestaurantes.get(i).getDescripcion()%></div>
 
                 <div id="getDireccion"><strong>Direccion: </strong><%=listaRestaurantes.get(i).getDireccion()%></div>
@@ -39,7 +41,7 @@
                 <div id="getHorario"><strong>Horario de atencion: </strong><%=listaRestaurantes.get(i).getHorario()%></div>
 
                 <div id="getTipoComida"><strong>Tipo principal de comida: </strong><%=listaRestaurantes.get(i).getTipoComida()%></div>
-
+               
             </div>
 
 

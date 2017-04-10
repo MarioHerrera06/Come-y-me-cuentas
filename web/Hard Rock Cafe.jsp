@@ -4,6 +4,9 @@
     Author     : Valentina
 --%>
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="Datos.Restaurante"%>
+<%@page import="BaseDeDatos.Conexion"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,31 +15,47 @@
     <%@include file="aside.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-         <link href="styles/Style.css" rel="stylesheet" type="text/css">
+        <link href="styles/Style.css" rel="stylesheet" type="text/css">
 
         <title>Restaurante</title>
     </head>
     <body>
-         <section>
+        <section>
 
-             <img  id = "plato" src ="img/Crepes.jpg" />   
+            <% Conexion conec = new Conexion();
+                ArrayList<Restaurante> listaRestaurantes = conec.mostrarRestaurantesPredeterminados("Hard Rock Cafe");
+                for (int i = 0; i < listaRestaurantes.size(); i++) {
 
-            <h2 id="titulo"> Hard Rock Cafe</h2> 
-            <p id="informacion"> Restaurante de comida tipo estadounidense. bar.,<br>
-               Asiento, Meseros, Televisión, Sillitas altas disponibles, Acceso para silla de ruedas,
-               Sirve alcohol, Bar completo, Reservas.Romántico, Ocasiones especiales, Comida local, Familias con niños <br>
-
-           <br> Direcciones: Bogotá, Cundinamarca<br>
-           Chapinero   Calle 81 #13-05<br>
-           Teléfono: 5307328 <br> 
-          <br>  Horarios: lunes a sabado : 12:00-01:00<br> 
-           
-            </p>
-            <br><ul id="agregarComentario"> <li><a href="">Agregar Comentario</a></li></ul>
-           
-
+            %>
+            <div id="campoRestaurante">
                 
-            
+                <h1 class="titulos" style="opacity: .70"><%=listaRestaurantes.get(i).getNombre()%></h1>
+                
+                <img class="imagen" src="./img/<%=listaRestaurantes.get(i).getImagen()%>">
+
+                <div id="getDescripcion"><strong>Descripcion: </strong><%=listaRestaurantes.get(i).getDescripcion()%></div>
+
+                <div id="getDireccion"><strong>Direccion: </strong><%=listaRestaurantes.get(i).getDireccion()%></div>
+
+                <div id="getTelefono"><strong>Telefono: </strong><%=listaRestaurantes.get(i).getTelefono()%></div>
+
+                <div id="getHoraInicio"><strong>Hora de apertura: </strong><%=listaRestaurantes.get(i).getHoraInicioClasificar()%></div>
+
+                <div id="getHoraFin"><strong>Hora de cierre: </strong><%=listaRestaurantes.get(i).getHoraFinClasificar()%></div>
+
+                <div id="getHorario"><strong>Horario de atencion: </strong><%=listaRestaurantes.get(i).getHorario()%></div>
+
+                <div id="getTipoComida"><strong>Tipo principal de comida: </strong><%=listaRestaurantes.get(i).getTipoComida()%></div>
+
+            </div>
+
+
+            <%}%>
+            <br><ul id="agregarComentario"> <li><a href="">Agregar Comentario</a></li></ul>
+
+
+
+
         </section>
     </body>
 </html>

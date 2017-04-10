@@ -122,11 +122,7 @@
                         <option value="Comida rapida">Comida rapida</option> 
                     </select></td>  
             </tr>
-            <tr>
-                    <td>Imagen en JPG:</td>
-                    <td><input type="file" name="imgRestaurante" size="50"/></td>
-                </tr >
-
+          
 
 
         </table>            

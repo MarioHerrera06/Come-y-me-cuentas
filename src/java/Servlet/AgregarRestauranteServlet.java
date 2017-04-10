@@ -1,5 +1,6 @@
 package Servlet;
 
+
 import BaseDeDatos.Conexion;
 import Datos.Restaurante;
 import java.io.IOException;
@@ -14,12 +15,12 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(urlPatterns = {"/AgregarRestauranteServlet"})
 public class AgregarRestauranteServlet extends HttpServlet {
-
+public static Restaurante restaurante;
     public static ArrayList<Restaurante> listaRestaurantes = new ArrayList<>();
 
     public static HttpServletRequest request;
     public static HttpServletResponse response;
-    Conexion conexion = new Conexion();
+    
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -33,10 +34,8 @@ public class AgregarRestauranteServlet extends HttpServlet {
         int horaFin = Integer.parseInt(request.getParameter("horaFin"));
         String horario = request.getParameter("horario");
         String tipoComida = request.getParameter("tipoComida");
-       // System.out.println(request.getParameter("imgRestaurante"));
-        Restaurante restaurante = new Restaurante(nombre, direccion, telefono, horaInicio, horaFin, horario, tipoComida,descripcion);
-        conexion.agregarRestaurante(restaurante);
-        RequestDispatcher dispacher = request.getRequestDispatcher("restaurantesNuevos.jsp");
+        restaurante = new Restaurante(nombre, direccion, telefono, horaInicio, horaFin, horario, tipoComida,descripcion);
+        RequestDispatcher dispacher = request.getRequestDispatcher("agregarImagenRestaurante.jsp");
         dispacher.forward(request, response);
     }
 

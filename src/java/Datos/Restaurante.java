@@ -20,13 +20,14 @@ public class Restaurante {
     private String horario;
     private String tipoComida;    
     private String descripcion;
-  //  Image imagen;
+    private String  imagen;
     
     public static ArrayList<Calificacion> listaCalificacion;
     public static ArrayList<Comentario> listaComentarios;
 
     public Restaurante(){}
-    public Restaurante(String nombre, String direccion, int telefono, int horaInicio, int horaFin, String horario,String tipoComida,String descripcion) {
+    public Restaurante(String nombre, String direccion, int telefono, int horaInicio, int horaFin, String horario,String tipoComida,String descripcion
+    ) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
@@ -36,6 +37,15 @@ public class Restaurante {
         this.tipoComida=tipoComida;
         this.descripcion = descripcion;
        
+       
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
     public int getHoraInicio() {
