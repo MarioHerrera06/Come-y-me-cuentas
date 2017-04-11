@@ -31,6 +31,7 @@
             %>
             <div id="campoRestaurante">
                 <h1 class="titulos" style="opacity: .70"><%=listaRestaurantes.get(i).getNombre()%></h1>
+                    <img class="imagen" src="./img/<%=listaRestaurantes.get(i).getImagen()%>">
 
                 <div id="getDescripcion"><strong>Descripcion: </strong><%=listaRestaurantes.get(i).getDescripcion()%></div>
 

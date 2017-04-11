@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,15 +33,8 @@ Conexion conexion = new Conexion();
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet AgregarImagenRestauranteServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet AgregarImagenRestauranteServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+           RequestDispatcher dispacher = request.getRequestDispatcher("restaurantesNuevos.jsp");
+        dispacher.forward(request, response);
         }
     }
 
@@ -70,6 +64,7 @@ Conexion conexion = new Conexion();
        
       AgregarRestauranteServlet.restaurante.setImagen(item.getName());
       conexion.agregarRestaurante(AgregarRestauranteServlet.restaurante);
+      
         processRequest(request, response);
     }
     }

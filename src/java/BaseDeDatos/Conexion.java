@@ -32,7 +32,7 @@ public class Conexion {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conexion = DriverManager.getConnection("jdbc:mysql://localhost:3307/proyecto?user=root&password=12345");
+            conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/proyecto?user=root&password=1234");
             statement = conexion.createStatement();
         } catch (ClassNotFoundException ex) {
             System.out.println("Clase no encontrada");
