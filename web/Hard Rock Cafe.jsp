@@ -17,7 +17,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="styles/Style.css" rel="stylesheet" type="text/css">
 
-        <title>Hard Rock Cafe</title>
+        <title>Restaurante</title>
     </head>
     <body>
         <section>
