@@ -1,15 +1,11 @@
-<%-- 
-    Document   : agregarImagenRestaurante
-    Created on : 9/04/2017, 08:36:30 PM
-    Author     : Valentina
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Agregar Imagen</title>
     </head>
     <body>
         <h1>Imagen</h1>

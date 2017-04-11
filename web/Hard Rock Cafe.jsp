@@ -1,8 +1,4 @@
-<%-- 
-    Document   : Hard Rock Cafe
-    Created on : 18/03/2017, 09:30:44 PM
-    Author     : Valentina
---%>
+
 
 <%@page import="java.util.ArrayList"%>
 <%@page import="Datos.Restaurante"%>
