@@ -1,39 +1,31 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Datos;
 
-import java.util.Date;
 
-/**
- *
- * @author Valentina
- */
+
 public class RangoHora {
     
-    private Date horaInicio;
-    private Date horaFin;
+    private int horaInicio;
+    private int horaFin;
 
-    public RangoHora(Date horaInicio, Date horaFin) {
+    public RangoHora(int horaInicio, int horaFin) {
         this.horaInicio = horaInicio;
         this.horaFin = horaFin;
     }
 
-    public Date getHoraInicio() {
+    public int getHoraInicio() {
         return horaInicio;
     }
 
-    public void setHoraInicio(Date horaInicio) {
+    public void setHoraInicio(int horaInicio) {
         this.horaInicio = horaInicio;
     }
 
-    public Date getHoraFin() {
+    public int getHoraFin() {
         return horaFin;
     }
 
-    public void setHoraFin(Date horaFin) {
+    public void setHoraFin(int horaFin) {
         this.horaFin = horaFin;
     }
     

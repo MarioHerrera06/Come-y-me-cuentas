@@ -53,7 +53,7 @@ Conexion conexion = new Conexion();
         for(int i=0;i<listaItems.size();i++){
             FileItem item = (FileItem)listaItems.get(i);
             if(!item.isFormField()){
-                 imgUrl="C:\\Users\\LauraValentina\\Music\\COMEYMECUENTAS\\Come-y-me-cuentas\\web\\img\\"+item.getName();
+                 imgUrl="C:\\Users\\Produccion\\Documents\\Come-y-me-cuentas\\web\\img\\"+item.getName();
                 File file = new File(imgUrl);
                  try{
                      item.write(file);
