@@ -38,6 +38,7 @@ public static Restaurante restaurante;
         RequestDispatcher dispacher = request.getRequestDispatcher("agregarImagenRestaurante.jsp");
         dispacher.forward(request, response);
     }
+    
 
     @Override
     public String getServletInfo() {

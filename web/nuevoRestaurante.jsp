@@ -13,7 +13,7 @@
 
 
     <h1 id="tituloRestaurante" style="opacity: .80;"> Nuevo Restaurante</h1> 
-    <form id="nuevoRestaurante" action="AgregarRestauranteServlet" method="POST">
+    <form name="otro" id="nuevoRestaurante" action="AgregarRestauranteServlet" method="POST">
         <table>
             <tr>
                 <td>Nombre :</td>
@@ -119,14 +119,29 @@
                         <option value="Italiana">Italiana</option>
                         <option value="Francesa">Francesa</option> 
                         <option value="Americana">Americana</option> 
-                        <option value="Comida rapida">Comida rapida</option> 
-                    </select></td>  
+                        <option value="Comida rapida" >Comida rapida</option> 
+                        <option value="Otro" onclick="myFunction()">Otro</option> 
+                    </select>
+             
+                   
+                </td> 
+               <td id="demo"  ></td>
             </tr>
-          
+
+            
+            <script>
+                
+                function  myFunction() {
+                     x= "<input "+"type="+"text"+"name="+"otro"+">";
+                   document.getElementById("demo").innerHTML=x;
+                
+                }
+            </script>
+           
 
 
         </table>            
-
+ 
         <input  type="submit" value="Crear" id="botonCuenta" /><br>
 
     </form>

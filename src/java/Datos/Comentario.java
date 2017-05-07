@@ -5,6 +5,7 @@
  */
 package Datos;
 
+import java.sql.Time;
 import java.util.Date;
 
 /**
@@ -12,39 +13,30 @@ import java.util.Date;
  * @author Valentina
  */
 public class Comentario {
-    private Usuario usuario;
-    private Restaurante restaurante;
-    private Date fecha ;   
+   // private Usuario usuario;
+    private String nombreRestaurante;
+    private String fecha ;   
     private String textoComentario;
 
-    public Comentario(Usuario usuario, Restaurante restaurante, Date fecha, String textoComentario) {
-        this.usuario = usuario;
-        this.restaurante = restaurante;
+    public Comentario(String restaurante, String fecha, String textoComentario) {
+        this.nombreRestaurante = restaurante;
         this.fecha = fecha;
         this.textoComentario = textoComentario;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public String getNombreRestaurante() {
+        return nombreRestaurante;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setNombreRestaurante(String nombreRestaurante) {
+        this.nombreRestaurante = nombreRestaurante;
     }
 
-    public Restaurante getRestaurante() {
-        return restaurante;
-    }
-
-    public void setRestaurante(Restaurante restaurante) {
-        this.restaurante = restaurante;
-    }
-
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
@@ -55,6 +47,8 @@ public class Comentario {
     public void setTextoComentario(String textoComentario) {
         this.textoComentario = textoComentario;
     }
+
+   
     
 
     
