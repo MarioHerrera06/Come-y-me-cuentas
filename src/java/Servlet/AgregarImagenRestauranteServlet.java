@@ -63,7 +63,7 @@ Conexion conexion = new Conexion();
                         }
        
       AgregarRestauranteServlet.restaurante.setImagen(item.getName());
-      conexion.agregarRestaurante(AgregarRestauranteServlet.restaurante);
+      conexion.agregarRestaurante(AgregarRestauranteServlet.restaurante,AgregarRestauranteServlet.tipocomida,AgregarRestauranteServlet.rangoHora);
       
         processRequest(request, response);
     }

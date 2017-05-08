@@ -1,7 +1,10 @@
 package BaseDeDatos;
 
 import Datos.Comentario;
+import Datos.Horario;
+import Datos.RangoHora;
 import Datos.Restaurante;
+import Datos.TipoComida;
 import Servlet.AgregarRestauranteServlet;
 import static Servlet.AgregarRestauranteServlet.listaRestaurantes;
 import java.io.File;
@@ -33,7 +36,7 @@ public class Conexion {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/proyecto?user=root&password=1234");
+            conexion = DriverManager.getConnection("jdbc:mysql://localhost:3307/proyecto?user=root&password=12345");
             statement = conexion.createStatement();
         } catch (ClassNotFoundException ex) {
             System.out.println("Clase no encontrada");
@@ -42,19 +45,55 @@ public class Conexion {
         }
 
     }
-
-    public void agregarRestaurante(Restaurante restaurante) throws FileNotFoundException, IOException {
+    
+    public void agregarTipoComida(TipoComida tipoComida) throws FileNotFoundException, IOException {
         try {
-            agregar = conexion.prepareStatement("insert into restaurante (nom_restaurante,descripcion,direccion,telefono,hora_inicio,hora_fin,horario,tipo_comida,imagen) values(?,?,?,?,?,?,?,?,?)");
+            agregar = conexion.prepareStatement("insert into TIPOCOMIDA (tipoComida) values(?)");
+            agregar.setString(1, tipoComida.getNombreTipoComida());
+            
+            agregar.executeUpdate();
+            agregar.close();
+
+            System.out.println("se agrego");
+        } catch (SQLException ex) {
+
+            System.out.println("No se pudo agregar el tipo de comida");
+        }
+
+    }
+    
+    
+    public void agregarRangoHora(RangoHora rangohora) throws FileNotFoundException, IOException {
+        try {
+            agregar = conexion.prepareStatement("insert into RANGOHORA (horaInicio,horaFin) values(?,?)");
+            agregar.setLong(1, rangohora.getHoraInicio());
+            agregar.setLong(2, rangohora.getHoraFin());
+           
+            agregar.executeUpdate();
+            agregar.close();
+
+            System.out.println("se agrego");
+        } catch (SQLException ex) {
+
+            System.out.println("No se pudo agregar el restaurante");
+        }
+
+    }
+
+    public void agregarRestaurante(Restaurante restaurante,TipoComida tipoComida, RangoHora rangoHora) throws FileNotFoundException, IOException {
+        try {
+            agregar = conexion.prepareStatement("insert into restaurante (nom_restaurante,descripcion,direccion,telefono,cod_rangoHora,hora_inicio,hora_fin,horario,tipo_comida,cod_tipo_comida,imagen) values(?,?,?,?,?,?,?,?,?,?,?)");
             agregar.setString(1, restaurante.getNombre());
             agregar.setString(2, restaurante.getDescripcion());
             agregar.setString(3, restaurante.getDireccion());
             agregar.setLong(4, restaurante.getTelefono());
-            agregar.setLong(5, restaurante.getHoraInicio());
-            agregar.setLong(6, restaurante.getHoraFin());
-            agregar.setString(7, restaurante.getHorario());
-            agregar.setString(8, restaurante.getTipoComida());
-            agregar.setString(9, restaurante.getImagen());
+            agregar.setLong(5, rangoHora.getId());
+            agregar.setLong(6, restaurante.getHoraInicio());
+            agregar.setLong(7, restaurante.getHoraFin());
+            agregar.setString(8, restaurante.getHorario());
+            agregar.setString(9, restaurante.getTipoComida());
+            agregar.setLong(10, tipoComida.getId());
+            agregar.setString(11, restaurante.getImagen());
             agregar.executeUpdate();
             agregar.close();
 
@@ -108,7 +147,55 @@ public class Conexion {
         return listaRestaurantes;
 
     }
+    
+    public TipoComida consultaTipoComida(String tipocomida){
+        try {
 
+            resultado = statement.executeQuery("SELECT * FROM TIPOCOMIDA WHERE TIPOCOMIDA='"+tipocomida+"'");
+            while (resultado.next()) {
+
+                TipoComida res = new TipoComida();
+                res.setId(resultado.getInt(1));
+                res.setNombreTipoComida(resultado.getString(2));
+              
+
+             return res;
+
+            }
+            resultado.close();
+        } catch (SQLException ex) {
+            
+        }
+        return null;
+        
+    }
+
+    
+     public RangoHora consultaRangoHora(String horaInicio){
+        try {
+
+            resultado = statement.executeQuery("SELECT * FROM RANGOHORA WHERE horaInicio='"+horaInicio+"'");
+            while (resultado.next()) {
+
+                RangoHora res = new RangoHora();
+                res.setId(resultado.getInt(1));
+                res.setHoraInicio(Integer.parseInt(resultado.getString(2)));
+                res.setHoraFin(Integer.parseInt(resultado.getString(3)));
+              
+
+            
+                return res;
+            }
+            resultado.close();
+        } catch (SQLException ex) {
+            
+        }
+        return null;
+     }
+    
+
+
+   
    
     
       public ArrayList mostrarRestauranteRandom(String tipoComida) {

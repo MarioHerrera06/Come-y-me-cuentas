@@ -13,29 +13,43 @@ import java.util.Date;
  */
 public class RangoHora {
     
-    private Date horaInicio;
-    private Date horaFin;
+    private int horaInicio;
+    private int horaFin;
+    private int id;
 
-    public RangoHora(Date horaInicio, Date horaFin) {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public RangoHora(int horaInicio, int horaFin) {
         this.horaInicio = horaInicio;
         this.horaFin = horaFin;
     }
 
-    public Date getHoraInicio() {
+    public RangoHora() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public int getHoraInicio() {
         return horaInicio;
     }
 
-    public void setHoraInicio(Date horaInicio) {
+    public void setHoraInicio(int horaInicio) {
         this.horaInicio = horaInicio;
     }
 
-    public Date getHoraFin() {
+    public int getHoraFin() {
         return horaFin;
     }
 
-    public void setHoraFin(Date horaFin) {
+    public void setHoraFin(int horaFin) {
         this.horaFin = horaFin;
     }
+
     
     
 }
