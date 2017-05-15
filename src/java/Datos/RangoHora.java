@@ -13,43 +13,29 @@ import java.util.Date;
  */
 public class RangoHora {
     
-    private int horaInicio;
-    private int horaFin;
-    private int id;
+    private Date horaInicio;
+    private Date horaFin;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public RangoHora(int horaInicio, int horaFin) {
+    public RangoHora(Date horaInicio, Date horaFin) {
         this.horaInicio = horaInicio;
         this.horaFin = horaFin;
     }
 
-    public RangoHora() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public int getHoraInicio() {
+    public Date getHoraInicio() {
         return horaInicio;
     }
 
-    public void setHoraInicio(int horaInicio) {
+    public void setHoraInicio(Date horaInicio) {
         this.horaInicio = horaInicio;
     }
 
-    public int getHoraFin() {
+    public Date getHoraFin() {
         return horaFin;
     }
 
-    public void setHoraFin(int horaFin) {
+    public void setHoraFin(Date horaFin) {
         this.horaFin = horaFin;
     }
-
     
     
 }

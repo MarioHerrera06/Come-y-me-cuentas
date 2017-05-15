@@ -1,5 +1,4 @@
 
-
 <%@page import="java.util.ArrayList"%>
 <%@page import="Datos.Restaurante"%>
 <%@page import="BaseDeDatos.Conexion"%>
@@ -44,7 +43,7 @@
                 <div id="getTipoComida"><strong>Tipo principal de comida: </strong><%=listaRestaurantes.get(i).getTipoComida()%></div>
                
                </div>
-                  
+               
 
             <%}%>
 

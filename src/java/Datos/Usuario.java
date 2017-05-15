@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class Usuario {
     private String nombre;
     private String apellidos;    
-    private String celular;
+    private int telefono;
     private String correo;
     private String nomUsuario;
     private String contraseña;
@@ -23,11 +23,11 @@ public class Usuario {
      public static ArrayList<Comentario> listaComentarios= new ArrayList<>();
      public static ArrayList<Calificacion> listaCalificacion= new ArrayList<>();
      
-    public Usuario(String nombre, String apellidos, String nomUsuario, String celular, String correo, String contraseña) {
+    public Usuario(String nombre, String apellidos, String nomUsuario, int telefono, String correo, String contraseña) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.nomUsuario = nomUsuario;
-        this.celular = celular;
+        this.telefono=telefono;
         this.correo = correo;
         this.contraseña = contraseña;
     }
@@ -56,12 +56,12 @@ public class Usuario {
         this.nomUsuario= nomUsuairo;
     }
 
-    public String getCelular() {
-        return celular;
+    public int getTelefono() {
+        return telefono;
     }
 
-    public void setCelular(String celular) {
-        this.celular = celular;
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
     }
 
     public String getCorreo() {

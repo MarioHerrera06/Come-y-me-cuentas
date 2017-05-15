@@ -9,6 +9,10 @@ package Datos;
  *
  * @author Valentina
  */
-public class UsuarioAdministrador {
+public class UsuarioAdministrador extends Usuario{
+    
+    public UsuarioAdministrador(String nombre, String apellidos, String nomUsuario, int telefono, String correo, String contraseña) {
+        super(nombre, apellidos, nomUsuario, telefono, correo, contraseña);
+    }
     
 }

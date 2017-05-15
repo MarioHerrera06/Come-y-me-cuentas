@@ -5,8 +5,10 @@
  */
 package Servlet;
 
+import BaseDeDatos.Conexion;
 import Datos.Comentario;
 import Datos.Restaurante;
+import static Datos.Restaurante.listaComentarios;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Time;
@@ -26,7 +28,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "AgregarComentarioServlet", urlPatterns = {"/AgregarComentarioServlet"})
 public class AgregarComentarioServlet extends HttpServlet {
 public static Comentario comentario;
-    public static ArrayList<Restaurante> listaRestaurantes = new ArrayList<>();
+public static Conexion con = new Conexion();
 
     public static HttpServletRequest request;
     public static HttpServletResponse response;
@@ -40,6 +42,7 @@ public static Comentario comentario;
         comentarios = request.getParameter("comentario");
         fecha = request.getParameter("fecha");
         comentario = new Comentario(nombre, fecha, comentarios);
+       con.agregarComentarios(comentario);
         RequestDispatcher dispacher = request.getRequestDispatcher("index.jsp");
         dispacher.forward(request, response);
     }

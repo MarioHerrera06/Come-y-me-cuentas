@@ -11,8 +11,10 @@ package Datos;
  */
 public class UsuarioNormal extends Usuario{
     
-    public UsuarioNormal(String nombre, String apellidos, String nomUsuario, String celular, String correo, String contraseña) {
-        super(nombre, apellidos, nomUsuario, celular, correo, contraseña);
+    public UsuarioNormal(String nombre, String apellidos, String nomUsuario, int telefono, String correo, String contraseña) {
+        super(nombre, apellidos, nomUsuario, telefono, correo, contraseña);
     }
+    
+  
     
 }

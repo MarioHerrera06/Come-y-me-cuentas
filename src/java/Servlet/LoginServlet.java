@@ -2,6 +2,7 @@ package Servlet;
 
 
 
+import BaseDeDatos.Conexion;
 import Servlet.CuentaServlet;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -39,21 +40,35 @@ public class LoginServlet extends HttpServlet {
 //        }
 //    
 //    HttpSession session = request.getSession(true);
+        Conexion con = new Conexion();
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out= response.getWriter();
         request.getRequestDispatcher("login.jsp").include(request, response);
         String name= request.getParameter("user");
         String password=request.getParameter("password");
+        String comparar = con.buscarUsuarios(name, password);
         
-        if(password.equals(CuentaServlet.contraseña)&& name.equals(CuentaServlet.nombreUsuario)){
-            HttpSession session=request.getSession();
-            session.setAttribute("user", name);
-            RequestDispatcher dispacher = request.getRequestDispatcher("index.jsp");
-            dispacher.forward(request, response);
-        }else{
-            out.print("Sorry, username or password error!");  
-            request.getRequestDispatcher("login.jsp").include(request, response); 
-        }
+//        if(!(comparar.equals("incorrecto"))){
+//            out.print("Sorry, username or password error!");
+//            request.getRequestDispatcher("nuevaCuenta.jsp").include(request, response);
+//        }else{
+//            HttpSession session=request.getSession();
+//            session.setAttribute("user", name);
+//            RequestDispatcher dispacher = request.getRequestDispatcher("index.jsp");
+//            dispacher.forward(request, response);
+//        }
+//        
+        
+//        
+//        if(password.equals(CuentaServlet.contraseña)&& name.equals(CuentaServlet.nombreUsuario)){
+//            HttpSession session=request.getSession();
+//            session.setAttribute("user", name);
+//            RequestDispatcher dispacher = request.getRequestDispatcher("index.jsp");
+//            dispacher.forward(request, response);
+//        }else{
+//            out.print("Sorry, username or password error!");  
+//            request.getRequestDispatcher("login.jsp").include(request, response); 
+//        }
         out.close();
     }
 }
