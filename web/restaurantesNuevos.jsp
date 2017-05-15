@@ -1,6 +1,4 @@
 
-
-<%@page import="Datos.Restaurante.listaComentarios"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Datos.Restaurante"%>
 <%@page import="BaseDeDatos.Conexion"%>

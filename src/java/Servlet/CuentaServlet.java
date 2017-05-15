@@ -7,7 +7,10 @@ package Servlet;
  */
 
 
+import BaseDeDatos.Conexion;
+import BaseDeDatos.Hash;
 import Datos.Usuario;
+import Datos.UsuarioNormal;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -25,45 +28,29 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(urlPatterns = {"/CuentaServlet"})
 public class CuentaServlet extends HttpServlet {
 
-  public static ArrayList<Usuario> listaUsuarios = new ArrayList<>();
+  public static Usuario usuario;
+  public static   Conexion c=new Conexion();
  
         
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-//         out.println("<!DOCTYPE html>");
-//            out.println("<html>");
-//            out.println("<head>");
-//            out.println("<title>Servlet borrarContacto</title>");            
-//            out.println("</head>");
-//            out.println("<body>");
-//            out.println("<h1>Usuario Creado... <br> Nombre: "+request.getParameter("nombre") +"<br>Apellido: "+request.getParameter("apellidos")+"<br> Edad: "+request.getParameter("edad")+"<br> Celular: "+request.getParameter("celular")+"<br> Correo: "+request.getParameter("correo") +"</h1>");
-//            out.println("</body>");
-//            out.println("</html>");
-            
-            RequestDispatcher dispacher = request.getRequestDispatcher("login.jsp");
-            dispacher.forward(request, response);
-//            
-           
-        }
-    }
-    
-    public static String nombreUsuario,contraseña;
+   
+    public static String nombreUsuario;
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-         processRequest(request, response);
-       
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {       
+             
                 String nombre = request.getParameter("nombre");
                 String apellidos = request.getParameter("apellidos");
-                String celular = request.getParameter("celular");
+                String telefono = request.getParameter("telefono");
                 String correo = request.getParameter("correo");
                 nombreUsuario = request.getParameter("nombreUsuario");
-                contraseña = request.getParameter("password");
-		Usuario usuario= new Usuario(nombre,apellidos, celular, correo,nombreUsuario,contraseña);
-                listaUsuarios.add(usuario);  
-                 RequestDispatcher dispacher = request.getRequestDispatcher("newjsp.jsp");
+                String contra = request.getParameter("contraseña");	
+                String contraHash = Hash.hash(contra);
+                
+//                Cifrado cifrado=new Cifrado(contra);
+//                usuario = new Usuario(nombre, apellidos, nombreUsuario, Integer.parseInt(telefono), correo, cifrado.getWord());
+                   usuario = new Usuario(nombre, apellidos, nombreUsuario, Integer.parseInt(telefono), correo,contraHash);
+//                   System.out.println(contraHash);
+                c.agregarUsuarioNormal(usuario);  
+                 RequestDispatcher dispacher = request.getRequestDispatcher("login.jsp");
             dispacher.forward(request, response);
             
     }

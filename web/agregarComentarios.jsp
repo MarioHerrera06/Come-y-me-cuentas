@@ -44,9 +44,7 @@
             </table> 
                     <h5>Comentario:</h5>
             <textArea name="comentario"  id="comentario"rows="10" cols="20">   
-            </textArea>            
-                
-                   
+            </textArea>       
 
         <input  type="submit" value="Agregar" id="botonCuenta" /><br>
 

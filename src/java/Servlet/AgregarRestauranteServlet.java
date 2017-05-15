@@ -24,8 +24,7 @@ public static Restaurante restaurante;
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.request = request;
-        this.response = response;
+        
         String nombre = request.getParameter("nombreRestaurante");
         String descripcion = request.getParameter("descripcion");
         String direccion = request.getParameter("direccion");

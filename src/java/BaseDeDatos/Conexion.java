@@ -2,6 +2,7 @@ package BaseDeDatos;
 
 import Datos.Comentario;
 import Datos.Restaurante;
+import Datos.Usuario;
 import Servlet.AgregarRestauranteServlet;
 import static Servlet.AgregarRestauranteServlet.listaRestaurantes;
 import java.io.File;
@@ -42,7 +43,30 @@ public class Conexion {
         }
 
     }
+    public void agregarUsuarioNormal(Usuario usuario) {
+        try {
+            agregar = conexion.prepareStatement("insert into usuario (nom_persona,apellido,telefono,correo,nom_usuario,contraseña) values (?,?,?,?,?,?)");
+            agregar.setString(1, usuario.getNombre());
+            agregar.setString(2, usuario.getApellidos());
+            agregar.setLong(3, usuario.getTelefono());
+            agregar.setString(4, usuario.getCorreo());
+            agregar.setString(5, usuario.getNomUsuario());
+            agregar.setString(6, usuario.getContraseña());
+            agregar.executeUpdate();
+            agregar.close();
+            System.out.println("Se agrego usuario");
+        }catch (SQLException ex) {
 
+            System.out.println("No se pudo agregar el usuario");
+        }
+        
+    }
+
+//    public static void main(String[] args) {
+//        Conexion c=new Conexion();
+//        Usuario s=new  Usuario("vale", "lindarte", "lau", 33333, "vale@gmail.com", "2345");
+//        c.agregarUsuario(s);
+//    }
     public void agregarRestaurante(Restaurante restaurante) throws FileNotFoundException, IOException {
         try {
             agregar = conexion.prepareStatement("insert into restaurante (nom_restaurante,descripcion,direccion,telefono,hora_inicio,hora_fin,horario,tipo_comida,imagen) values(?,?,?,?,?,?,?,?,?)");
@@ -58,7 +82,7 @@ public class Conexion {
             agregar.executeUpdate();
             agregar.close();
 
-            System.out.println("se agrego");
+            System.out.println("se agrego el restaurante");
         } catch (SQLException ex) {
 
             System.out.println("No se pudo agregar el restaurante");
@@ -73,11 +97,27 @@ public class Conexion {
             agregar.setString(4, comentarios.getFecha());
             agregar.executeUpdate();
             agregar.close();
-              System.out.println("se agrego");
+              System.out.println("se agrego el comentario");
         } catch (SQLException ex) {
 
             System.out.println("No se pudo agregar el comentario");
         }
+    }
+    
+    public String buscarUsuarios(String usuario, String contra){
+       
+         try {
+            String x= Hash.hash(contra);              
+             resultado = statement.executeQuery("select nom_usuario, contraseña from USUARIO where nom_usuario='"+usuario+"'; ");
+             String us = resultado.getString(0);
+             String co = resultado.getString(1);
+             System.out.println(us+co);
+             System.out.println("se encontro");
+             
+         }catch (SQLException ex) {
+             System.out.println("no se encontro");
+        } 
+         return "";
     }
 
     public ArrayList mostrarRestaurante() {
