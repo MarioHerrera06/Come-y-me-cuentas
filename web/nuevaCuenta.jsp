@@ -41,7 +41,7 @@
             </tr>
             <tr>
                 <td> Contraseña :</td>
-                <td><input type="password" name="contraseña" required=""><span class="red"> *</span></td>
+                <td><input type="password" name="password" required=""><span class="red"> *</span></td>
             </tr>
 
         </table>            

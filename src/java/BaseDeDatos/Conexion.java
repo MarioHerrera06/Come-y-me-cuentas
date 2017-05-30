@@ -45,13 +45,14 @@ public class Conexion {
     }
     public void agregarUsuarioNormal(Usuario usuario) {
         try {
-            agregar = conexion.prepareStatement("insert into usuario (nom_persona,apellido,telefono,correo,nom_usuario,contraseña) values (?,?,?,?,?,?)");
-            agregar.setString(1, usuario.getNombre());
-            agregar.setString(2, usuario.getApellidos());
-            agregar.setLong(3, usuario.getTelefono());
-            agregar.setString(4, usuario.getCorreo());
-            agregar.setString(5, usuario.getNomUsuario());
-            agregar.setString(6, usuario.getContraseña());
+            agregar = conexion.prepareStatement("insert into usuario (tipoUsuario,nom_persona,apellido,telefono,correo,nom_usuario,contraseña) values (?,?,?,?,?,?,?)");
+           agregar.setString(1, usuario.getTipoUsuario());
+            agregar.setString(2, usuario.getNombre());
+            agregar.setString(3, usuario.getApellidos());
+            agregar.setLong(4, usuario.getTelefono());
+            agregar.setString(5, usuario.getCorreo());
+            agregar.setString(6, usuario.getNomUsuario());
+            agregar.setString(7, usuario.getContraseña());
             agregar.executeUpdate();
             agregar.close();
             System.out.println("Se agrego usuario");
@@ -105,19 +106,25 @@ public class Conexion {
     }
     
     public String buscarUsuarios(String usuario, String contra){
-       
-         try {
-            String x= Hash.hash(contra);              
-             resultado = statement.executeQuery("select nom_usuario, contraseña from USUARIO where nom_usuario='"+usuario+"'; ");
-             String us = resultado.getString(0);
-             String co = resultado.getString(1);
-             System.out.println(us+co);
+      String x =null;
+        try {  
+            
+             resultado = statement.executeQuery("select nom_usuario, contraseña from USUARIO where nom_usuario='"+usuario+"'"+"and contraseña='"+contra+"'");
+             System.out.println(contra);
+            while (resultado.next()) { 
+             String nom = resultado.getString(1);
+              String cont = resultado.getString(2);
+            
+              System.out.println("aqui usuario:"+nom+" contraseña:"+cont);
              System.out.println("se encontro");
-             
+             x="true";
+            }   
+            resultado.close();
          }catch (SQLException ex) {
              System.out.println("no se encontro");
+             x="false";
         } 
-         return "";
+         return x;
     }
 
     public ArrayList mostrarRestaurante() {

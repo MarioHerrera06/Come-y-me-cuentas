@@ -3,6 +3,7 @@ package Servlet;
 
 
 import BaseDeDatos.Conexion;
+import BaseDeDatos.Hash;
 import Servlet.CuentaServlet;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -25,50 +26,37 @@ public class LoginServlet extends HttpServlet {
         RequestDispatcher dispacher = request.getRequestDispatcher("index.jsp");
         dispacher.forward(request, response);
 
-    }
+    }       public static String comparar;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        String usuario = request.getParameter("user");
-//        String clave = request.getParameter("password");
-//        if ("laura".equals(usuario) && "1234".equals(clave)) {
-//            RequestDispatcher dispacher = request.getRequestDispatcher("index.jsp");
-//            dispacher.forward(request, response);
-//        } else {
-//            RequestDispatcher dispacher = request.getRequestDispatcher("login.jsp");
-//            dispacher.forward(request, response);
-//        }
-//    
-//    HttpSession session = request.getSession(true);
+
+      
+
         Conexion con = new Conexion();
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out= response.getWriter();
         request.getRequestDispatcher("login.jsp").include(request, response);
         String name= request.getParameter("user");
         String password=request.getParameter("password");
-        String comparar = con.buscarUsuarios(name, password);
+        comparar = Hash.hash(password);
+        //System.out.println(name+":"+password+":"+comparar);
         
-//        if(!(comparar.equals("incorrecto"))){
-//            out.print("Sorry, username or password error!");
-//            request.getRequestDispatcher("nuevaCuenta.jsp").include(request, response);
-//        }else{
-//            HttpSession session=request.getSession();
-//            session.setAttribute("user", name);
-//            RequestDispatcher dispacher = request.getRequestDispatcher("index.jsp");
-//            dispacher.forward(request, response);
-//        }
-//        
+        String res = con.buscarUsuarios(name, comparar);
+        System.out.println(res);
         
-//        
-//        if(password.equals(CuentaServlet.contraseña)&& name.equals(CuentaServlet.nombreUsuario)){
-//            HttpSession session=request.getSession();
-//            session.setAttribute("user", name);
-//            RequestDispatcher dispacher = request.getRequestDispatcher("index.jsp");
-//            dispacher.forward(request, response);
-//        }else{
-//            out.print("Sorry, username or password error!");  
-//            request.getRequestDispatcher("login.jsp").include(request, response); 
-//        }
+              
+        
+        if(res.equals("true")){
+            HttpSession session=request.getSession();
+            session.setAttribute("usuario",name);
+            session.setAttribute("tipoUsuario", name);
+            RequestDispatcher dispacher = request.getRequestDispatcher("index.jsp");
+            dispacher.forward(request, response);
+        }else{
+            out.println("<h1>El Usuario o la contraseña incorrectos<h1>");  
+            request.getRequestDispatcher("login.jsp").include(request, response); 
+        }
         out.close();
     }
 }

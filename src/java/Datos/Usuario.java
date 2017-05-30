@@ -19,18 +19,32 @@ public class Usuario {
     private String correo;
     private String nomUsuario;
     private String contraseña;
+    private String tipoUsuario;
 
      public static ArrayList<Comentario> listaComentarios= new ArrayList<>();
      public static ArrayList<Calificacion> listaCalificacion= new ArrayList<>();
      
-    public Usuario(String nombre, String apellidos, String nomUsuario, int telefono, String correo, String contraseña) {
+     public Usuario(){
+         
+     }
+    public Usuario(String nombre, String apellidos, String nomUsuario, int telefono, String correo, String contraseña, String tipoUsuario) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.nomUsuario = nomUsuario;
         this.telefono=telefono;
         this.correo = correo;
         this.contraseña = contraseña;
+        this.tipoUsuario = tipoUsuario;
     }
+
+    public String getTipoUsuario() {
+        return tipoUsuario;
+    }
+
+    public void setTipoUsuario(String tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
+    }
+    
 
     public String getNombre() {
         return nombre;

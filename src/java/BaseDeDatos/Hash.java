@@ -27,7 +27,7 @@ public static String resumen;
 
 
         public static String hash (String mensaje){ 
-        String sumar = "El mensaje original";
+        String sumar = "comeymecuetas";
         
         String cifrar = mensaje+sumar;
         byte[] bytesDelMensaje = cifrar.getBytes();
@@ -41,7 +41,7 @@ public static String resumen;
             resumen = resumenNumero.toString(16);
 //            
 //            System.out.println("Mensaje '" + mensaje + "' -> Hash MD5: " + resumen);
-      
+            //System.out.println(resumen);
             
         } catch (NoSuchAlgorithmException e) {}
         return resumen;
