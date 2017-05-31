@@ -40,7 +40,7 @@ public class LoginServlet extends HttpServlet {
         String name= request.getParameter("user");
         String password=request.getParameter("password");
         comparar = Hash.hash(password);
-        //System.out.println(name+":"+password+":"+comparar);
+      
         
         String res = con.buscarUsuarios(name, comparar);
         System.out.println(res);

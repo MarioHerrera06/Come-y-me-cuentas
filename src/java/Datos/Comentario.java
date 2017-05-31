@@ -1,35 +1,33 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Datos;
 
 import java.sql.Time;
 import java.util.Date;
 
-/**
- *
- * @author Valentina
- */
+
 public class Comentario {
-   // private Usuario usuario;
-    private String nombreRestaurante;
+   
+    private int idRestaurante;
     private String fecha ;   
     private String textoComentario;
 
-    public Comentario(String restaurante, String fecha, String textoComentario) {
-        this.nombreRestaurante = restaurante;
+    public Comentario(int restaurante, String fecha, String textoComentario) {
+        this.idRestaurante = restaurante;
         this.fecha = fecha;
         this.textoComentario = textoComentario;
     }
 
-    public String getNombreRestaurante() {
-        return nombreRestaurante;
+    public Comentario(int id, String comentario) {
+        this.idRestaurante=id;
+        this.textoComentario=comentario;
     }
 
-    public void setNombreRestaurante(String nombreRestaurante) {
-        this.nombreRestaurante = nombreRestaurante;
+    public int getId() {
+        return idRestaurante;
+    }
+
+    public void setNombreRestaurante(int id) {
+        this.idRestaurante =id;
     }
 
     public String getFecha() {

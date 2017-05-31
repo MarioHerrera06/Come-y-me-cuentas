@@ -34,7 +34,7 @@ public class Conexion {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/proyecto?user=root&password=1234");
+            conexion = DriverManager.getConnection("jdbc:mysql://localhost:3307/proyecto?user=root&password=12345");
             statement = conexion.createStatement();
         } catch (ClassNotFoundException ex) {
             System.out.println("Clase no encontrada");
@@ -92,12 +92,12 @@ public class Conexion {
     }
     public void agregarComentarios(Comentario comentarios)throws FileNotFoundException, IOException{
         try{
-            agregar = conexion.prepareStatement("insert into comentario (cod_restaurante,d_comentario,fecha) values (?,?,?)");
-            agregar.setString(1, comentarios.getNombreRestaurante());
-            agregar.setString(3, comentarios.getTextoComentario());
-            agregar.setString(4, comentarios.getFecha());
+            agregar = conexion.prepareStatement("insert into comentario (cod_restaurante,d_comentario) values (?,?)");
+            agregar.setLong(1,comentarios.getId());
+            agregar.setString(2, comentarios.getTextoComentario());           
             agregar.executeUpdate();
             agregar.close();
+            
               System.out.println("se agrego el comentario");
         } catch (SQLException ex) {
 

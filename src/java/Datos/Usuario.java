@@ -22,7 +22,7 @@ public class Usuario {
     private String tipoUsuario;
 
      public static ArrayList<Comentario> listaComentarios= new ArrayList<>();
-     public static ArrayList<Calificacion> listaCalificacion= new ArrayList<>();
+
      
      public Usuario(){
          

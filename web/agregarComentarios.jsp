@@ -40,7 +40,7 @@
                 </td>                            
             </tr><br>
             <td>Fecha:</td>
-            <td> <input type="Date" name="fecha" ></td>
+            <td> <input type="date" name="fecha" ></td>
             </table> 
                     <h5>Comentario:</h5>
             <textArea name="comentario"  id="comentario"rows="10" cols="20">   
