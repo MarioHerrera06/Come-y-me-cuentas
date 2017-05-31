@@ -6,10 +6,12 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
 <html>
     
      <link href="styles/Style.css" rel="stylesheet" type="text/css">
     <aside>
+        
        
         <h2 class="titulos"> Tipos de comida: </h2>
         <ul>
@@ -25,7 +27,8 @@
         <ul>
             <li><a href="nuevoRestaurante.jsp">Agregar Restaurante</a></li>
             <li><a href="restaurantesNuevos.jsp">Restaurantes</a></li>
-            <li><a href="agregarComentarios.jsp">Comentar</a></li>            
+            <li><a href="agregarComentarios.jsp">Comentar</a></li>
+            <li> <a href="calificacion.jsp">Calificar</a></li>
             <li><a href="">Recomendar</a></li>
             </ul>
     </aside>

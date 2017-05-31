@@ -5,7 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<!DOCTYPE html
+    
 <html>
      <%@include file="header.jsp" %>
     <%@include file="nav.jsp" %>

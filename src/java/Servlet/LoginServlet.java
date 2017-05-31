@@ -4,6 +4,8 @@ package Servlet;
 
 import BaseDeDatos.Conexion;
 import BaseDeDatos.Hash;
+import Datos.Usuario;
+import static Servlet.AgregarRestauranteServlet.request;
 import Servlet.CuentaServlet;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -27,6 +29,7 @@ public class LoginServlet extends HttpServlet {
         dispacher.forward(request, response);
 
     }       public static String comparar;
+            Usuario us = new Usuario();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -37,26 +40,30 @@ public class LoginServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out= response.getWriter();
         request.getRequestDispatcher("login.jsp").include(request, response);
-        String name= request.getParameter("user");
+        String usuario= request.getParameter("user");
         String password=request.getParameter("password");
         comparar = Hash.hash(password);
-      
+        //System.out.println(name+":"+password+":"+comparar);
         
-        String res = con.buscarUsuarios(name, comparar);
+        String res = con.buscarUsuarios(usuario, comparar);
         System.out.println(res);
         
               
         
-        if(res.equals("true")){
-            HttpSession session=request.getSession();
-            session.setAttribute("usuario",name);
-            session.setAttribute("tipoUsuario", name);
-            RequestDispatcher dispacher = request.getRequestDispatcher("index.jsp");
-            dispacher.forward(request, response);
+            if(res.equals("true")){
+            HttpSession actual=request.getSession(true);
+           actual.setAttribute("logueado",usuario); 
+           int tipo = con.buscarTipoUsuario(usuario);
+           actual.setAttribute("tipoUsuario", tipo);
+           int idU = con.buscarIdU(usuario);
+           actual.setAttribute("idU", idU);
+                System.out.println("------>"+tipo);
+            response.sendRedirect("index.jsp");
         }else{
             out.println("<h1>El Usuario o la contraseña incorrectos<h1>");  
-            request.getRequestDispatcher("login.jsp").include(request, response); 
+        response.sendRedirect("login.jsp");
         }
         out.close();
     }
+   
 }

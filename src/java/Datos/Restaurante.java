@@ -22,7 +22,7 @@ public class Restaurante {
     private String descripcion;
     private String  imagen;
     
-
+public static ArrayList<Calificacion> listaCalificacion;
     public static ArrayList<Comentario> listaComentarios;
 
     public Restaurante(){}

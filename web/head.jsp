@@ -4,16 +4,13 @@
     Author     : Valentina
 --%>
 
+<%@page import="Datos.Usuario"%>
+<%@page import="BaseDeDatos.Conexion"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="styles/style.css"/>
-        <title>  </title>
 
-    </head>
-    
-    <h1>'Bienvenido:'+ </h1>
+<html>
+
+   
     
 </html>

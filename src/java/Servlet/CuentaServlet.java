@@ -1,6 +1,10 @@
-package Servlet;
+    package Servlet;
 
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 import BaseDeDatos.Conexion;
 import BaseDeDatos.Hash;
 import Datos.Usuario;
@@ -24,12 +28,12 @@ public class CuentaServlet extends HttpServlet {
     public static Usuario usuario;
     public static Conexion c = new Conexion();
 
-    public static String nombreUsuario, contraHash, tipoUsuario;
+    public static String nombreUsuario, contraHash;
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        tipoUsuario = request.getParameter("tipoUsuario");
+      
         String nombre = request.getParameter("nombre");
         String apellidos = request.getParameter("apellidos");
         String telefono = request.getParameter("telefono");
@@ -41,7 +45,7 @@ public class CuentaServlet extends HttpServlet {
 
 //                Cifrado cifrado=new Cifrado(contra);
 //                usuario = new Usuario(nombre, apellidos, nombreUsuario, Integer.parseInt(telefono), correo, cifrado.getWord());
-        usuario = new Usuario(nombre, apellidos, nombreUsuario, Integer.parseInt(telefono), correo, contraHash,tipoUsuario);
+        usuario = new Usuario(nombre, apellidos, nombreUsuario, Integer.parseInt(telefono), correo, contraHash,2);
         //System.out.println("Crea cuenta con pas:"+password+"cifrada:"+contraHash);
         c.agregarUsuarioNormal(usuario);
         RequestDispatcher dispacher = request.getRequestDispatcher("login.jsp");

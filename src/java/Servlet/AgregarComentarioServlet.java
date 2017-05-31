@@ -1,10 +1,15 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Servlet;
 
 import BaseDeDatos.Conexion;
 import Datos.Comentario;
 import Datos.Restaurante;
 import static Datos.Restaurante.listaComentarios;
+import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Time;
@@ -16,6 +21,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -24,24 +30,35 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "AgregarComentarioServlet", urlPatterns = {"/AgregarComentarioServlet"})
 public class AgregarComentarioServlet extends HttpServlet {
 
-    public static Comentario comentario;
-    public static Conexion con = new Conexion();
+public static Conexion con = new Conexion();
 
     public static HttpServletRequest request;
     public static HttpServletResponse response;
+    String fecha , text;
+    int codRes,idU;
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
+        
+    HttpSession actual = request.getSession(true);
+    idU = (int)actual.getAttribute("idU");
+    
         this.request = request;
         this.response = response;
-        int id = Integer.parseInt(request.getParameter("elejirRestaurante"));
-        String comentarioHecho = request.getParameter("comentario");
-        // fecha = request.getParameter("fecha");
-        comentario = new Comentario(id, comentarioHecho);
-        System.out.println(comentario.getId());
-        System.out.println(comentario.getTextoComentario());
-
-        con.agregarComentarios(comentario);
+        codRes = Integer.parseInt(request.getParameter("Restaurante"));
+        text = request.getParameter("comentario");
+        fecha = request.getParameter("fecha");
+        System.out.println(fecha);
+        System.out.println(codRes);
+        System.out.println(text);
+        System.out.println(idU);
+       
+        
+        
+       Comentario com = new Comentario(idU, codRes, text, fecha);
+        System.out.println(idU+"<------"+fecha);
+       con.agregarComentarios(com);
         RequestDispatcher dispacher = request.getRequestDispatcher("index.jsp");
         dispacher.forward(request, response);
     }

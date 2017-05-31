@@ -147,7 +147,7 @@ a:hover{
 section{
     background-color: black;
     position: absolute;
-    left: 40%;
+    left: 30%;
     top: 40%;
     width: 65%;
     height: 50%;
@@ -322,13 +322,22 @@ nav{
 
 
 
-
+#campoComentarios{
+   
+    height: 50%;
+    width: 80%;
+    padding-left: 20%;
+    border-bottom: double;
+    border-color: orange;
+    border-top: double;
+    margin: 5%;
+}
 
 #campoRestaurante{
    
     height: 150%;
-    width: 70%;
-    padding-left: 5%;
+    width: 80%;
+    padding-left: 10%;
     border-bottom: double;
     border-color: orange;
     border-top: double;

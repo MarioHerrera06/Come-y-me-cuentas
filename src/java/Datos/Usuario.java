@@ -19,15 +19,15 @@ public class Usuario {
     private String correo;
     private String nomUsuario;
     private String contraseña;
-    private String tipoUsuario;
+    private int tipoUsuario;
 
      public static ArrayList<Comentario> listaComentarios= new ArrayList<>();
-
+     public static ArrayList<Calificacion> listaCalificacion= new ArrayList<>();
      
      public Usuario(){
          
      }
-    public Usuario(String nombre, String apellidos, String nomUsuario, int telefono, String correo, String contraseña, String tipoUsuario) {
+    public Usuario(String nombre, String apellidos, String nomUsuario, int telefono, String correo, String contraseña, int tipoUsuario) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.nomUsuario = nomUsuario;
@@ -37,11 +37,11 @@ public class Usuario {
         this.tipoUsuario = tipoUsuario;
     }
 
-    public String getTipoUsuario() {
+    public int getTipoUsuario() {
         return tipoUsuario;
     }
 
-    public void setTipoUsuario(String tipoUsuario) {
+    public void setTipoUsuario(int  tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
     }
     
