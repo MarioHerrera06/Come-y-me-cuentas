@@ -131,7 +131,7 @@ a:hover{
     color: orange;
     font-style:  italic;
     top: 20%  ;
-    left: 20%;
+    left: 15%;
 }
 #tituloRestaurante{
     position: absolute;
@@ -323,19 +323,23 @@ nav{
 
 
 #campoComentarios{
-   
-    height: 50%;
-    width: 80%;
-    padding-left: 20%;
+    position: relative;
+    top: 30%;
+    height: 60%;
+    width: 45%;
+    padding-left: 10%;
     border-bottom: double;
     border-color: orange;
     border-top: double;
     margin: 5%;
 }
 
+
+
+
 #campoRestaurante{
    
-    height: 150%;
+    height: 160%;
     width: 80%;
     padding-left: 10%;
     border-bottom: double;

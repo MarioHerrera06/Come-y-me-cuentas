@@ -34,7 +34,7 @@
 
 <html>
     <%@include file="header.jsp" %>
-    <!--%@include file="nav.jsp" %-->
+    <%@include file="nav.jsp" %>
 
 
     <link href="styles/Style.css" rel="stylesheet" type="text/css" >
@@ -42,19 +42,8 @@
     <title >Come y me cuentas</title>
 
     <body>
-        <nav>
-            <div id="navTitulo"> <a href="index.jsp"> Atrevete, experimenta y disfruta </a> 
-
-                <div id="links">
-                    <h1 style="color: white">Bienvenido: <%=actual.getAttribute("logueado")%>  </h1>
-                    <a href="login.jsp" id="linkLoginNav" >Login</a>
-                    <a href="nuevaCuenta.jsp" id="linkNuevaCuentaNav">Nueva cuenta</a>
-                    <a href="cerrar.jsp" id="cerrar">Cerrar</a>
-                </div>
-
-            </div>
-
-        </nav>
+         <h6 style="color: white;opacity: 0.7; font-family:sans-serif; position: absolute; right: 13%; top: 25%;">Bienvenido: <%=actual.getAttribute("logueado")%>!</h6>
+        
         <aside>
             <%
                 HttpSession sesion = request.getSession();
@@ -80,9 +69,8 @@
             <ul>
 
                 <li><a href="restaurantesNuevos.jsp">Restaurantes</a></li>
-                <li><a href="agregarComentarios.jsp">Comentar</a></li>
-                <li> <a href="calificacion.jsp">Calificar</a></li>
-                <li><a href="">Recomendar</a></li>
+                <li><a href="agregarComentarios.jsp">Comentar o recomendar</a></li>
+              
             </ul>
         </aside>
 
@@ -132,7 +120,7 @@
 
             <div id="listaRestaurantesIndex">
                 <ul>
-                    <li  id="listaPrincipal" type="disc" onclick="plusDivs(<%=i + 1%>)"><a><%=listaRestaurantes.get(i).getNombre()%></a></li>
+                    <li  id="listaPrincipal" type="disc" "><a><%=listaRestaurantes.get(i).getNombre()%></a></li>
                 </ul>
             </div>
             <%}%>

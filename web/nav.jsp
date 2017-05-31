@@ -17,9 +17,7 @@
         <div id="navTitulo"> <a href="index.jsp"> Atrevete, experimenta y disfruta </a> 
      
             <div id="links">
-                <a href="login.jsp" id="linkLoginNav" >Login</a>
-                <a href="nuevaCuenta.jsp" id="linkNuevaCuentaNav">Nueva cuenta</a>
-                <a href="cerrar.jsp" id="cerrar">Cerrar</a>
+                              <a href="cerrar.jsp" id="cerrar">|  Cerrar Sesion  |</a>
             </div>
 
         </div>

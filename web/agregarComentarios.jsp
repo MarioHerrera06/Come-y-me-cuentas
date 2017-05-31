@@ -66,6 +66,11 @@
             </tr><br>
             <td>Fecha:</td>
             <td> <input type="text" name="fecha" ></td>
+            <tr></tr>
+            <tr>
+            <td> <input type="radio" name="codigoTipo" value="1">Comentario</td>
+            <td> <input type="radio" name="codigoTipo" value="2" >Recomendacion</td>
+            </tr>
         </table> 
         <h5>Comentario:</h5>
         <textArea name="comentario"  id="comentario"rows="10" cols="20">   

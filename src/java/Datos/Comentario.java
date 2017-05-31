@@ -15,6 +15,7 @@ import java.util.Date;
 public class Comentario {
    // private Usuario usuario;
     private int codRes;
+    private int codTipo;
     private String fecha ;   
     private String textoComentario;
     private int usuario;
@@ -23,7 +24,8 @@ public class Comentario {
         
     }
 
-    public Comentario( int usuario, int codRes,String textoComentario, String fecha) {
+    public Comentario( int codigo,int usuario, int codRes,String textoComentario, String fecha) {
+        this.codTipo=codigo;
         this.codRes = codRes;
         this.fecha = fecha;
         this.textoComentario = textoComentario;
@@ -45,6 +47,14 @@ public class Comentario {
 
     public void setUsuario(int usuario) {
         this.usuario = usuario;
+    }
+
+    public int getCodTipo() {
+        return codTipo;
+    }
+
+    public void setCodTipo(int codTipo) {
+        this.codTipo = codTipo;
     }
 
     

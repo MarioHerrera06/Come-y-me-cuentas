@@ -23,10 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author Valentina
- */
+
 @WebServlet(name = "AgregarComentarioServlet", urlPatterns = {"/AgregarComentarioServlet"})
 public class AgregarComentarioServlet extends HttpServlet {
 
@@ -35,7 +32,7 @@ public static Conexion con = new Conexion();
     public static HttpServletRequest request;
     public static HttpServletResponse response;
     String fecha , text;
-    int codRes,idU;
+    int codRes,idU,codTipo;
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -49,6 +46,7 @@ public static Conexion con = new Conexion();
         codRes = Integer.parseInt(request.getParameter("Restaurante"));
         text = request.getParameter("comentario");
         fecha = request.getParameter("fecha");
+        codTipo= Integer.parseInt(request.getParameter("codigoTipo"));
         System.out.println(fecha);
         System.out.println(codRes);
         System.out.println(text);
@@ -56,7 +54,7 @@ public static Conexion con = new Conexion();
        
         
         
-       Comentario com = new Comentario(idU, codRes, text, fecha);
+       Comentario com = new Comentario(codTipo,idU, codRes, text, fecha);
         System.out.println(idU+"<------"+fecha);
        con.agregarComentarios(com);
         RequestDispatcher dispacher = request.getRequestDispatcher("index.jsp");

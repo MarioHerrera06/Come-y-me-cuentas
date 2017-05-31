@@ -9,12 +9,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Come y me cuentas</title>
+        <title>Come y me cuentas - Login</title>
         <link href="styles/Style.css" rel="stylesheet" type="text/css">
     </head>
 
     <body>
-        <img id="loginTitulo" src="" width="500" height="100" alt="Come y me cuentas" />
+        <a href="index.jsp"><img src="https://images.cooltext.com/4901958.png" width="500" height="100" alt="Come y me cuentas" style="position: absolute; top: 10%; left: 30%;"/></a>
 
 
         <form id="formularioLogin" action="LoginServlet" method="POST">

@@ -10,9 +10,9 @@
 <%@page import="BaseDeDatos.Conexion"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
- <%@include file="header.jsp" %>
-    <%@include file="nav.jsp" %>
-  
+<%@include file="header.jsp" %>
+<%@include file="nav.jsp" %>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -21,7 +21,7 @@
         <title>Restaurantes</title>
     </head>
     <body>
-           <aside>
+        <aside>
             <%
                 HttpSession sesion = request.getSession();
                 if (sesion.getAttribute("tipoUsuario") != null) {
@@ -46,60 +46,94 @@
             <ul>
 
                 <li><a href="restaurantesNuevos.jsp">Restaurantes</a></li>
-                <li><a href="agregarComentarios.jsp">Comentar</a></li>
-                <li> <a href="calificacion.jsp">Calificar</a></li>
-                <li><a href="">Recomendar</a></li>
+                <li><a href="agregarComentarios.jsp">Comentar o recomendar</a></li>
+               
             </ul>
         </aside>
         <%Conexion conexion = new Conexion();
             int id = Integer.valueOf(request.getParameter("id"));
             ArrayList<Restaurante> listaRestaurantes = conexion.mostrarRestaurantePorId(id);
             ArrayList<Comentario> listaComentarios = conexion.mostrarComentarios(id);
-            
 
             for (int i = 0; i < listaRestaurantes.size(); i++) {
         %>
         <section>
-        <div id="campoRestaurante" style="color: white">
+            <div id="campoRestaurante" style="color: white">
 
-            <h1 class="titulos" style="opacity: .70"><%=listaRestaurantes.get(i).getNombre()%></h1>
-            <img class="imagen" src="./img/<%=listaRestaurantes.get(i).getImagen()%>">
-            <div id="getDescripcion"><strong>Descripcion: </strong><%=listaRestaurantes.get(i).getDescripcion()%></div>
+                <h1 class="titulos" style="opacity: .70"><%=listaRestaurantes.get(i).getNombre()%></h1>
+                <img class="imagen" src="./img/<%=listaRestaurantes.get(i).getImagen()%>">
+                <div id="getDescripcion"><strong>Descripcion: </strong><%=listaRestaurantes.get(i).getDescripcion()%></div>
 
-            <div id="getDireccion"><strong>Direccion: </strong><%=listaRestaurantes.get(i).getDireccion()%></div>
+                <div id="getDireccion"><strong>Direccion: </strong><%=listaRestaurantes.get(i).getDireccion()%></div>
 
-            <div id="getTelefono"><strong>Telefono: </strong><%=listaRestaurantes.get(i).getTelefono()%></div>
+                <div id="getTelefono"><strong>Telefono: </strong><%=listaRestaurantes.get(i).getTelefono()%></div>
 
-            <div id="getHoraInicio"><strong>Hora de apertura: </strong><%=listaRestaurantes.get(i).getHoraInicioClasificar()%></div>
+                <div id="getHoraInicio"><strong>Hora de apertura: </strong><%=listaRestaurantes.get(i).getHoraInicioClasificar()%></div>
 
-            <div id="getHoraFin"><strong>Hora de cierre: </strong><%=listaRestaurantes.get(i).getHoraFinClasificar()%></div>
+                <div id="getHoraFin"><strong>Hora de cierre: </strong><%=listaRestaurantes.get(i).getHoraFinClasificar()%></div>
 
-            <div id="getHorario"><strong>Horario de atencion: </strong><%=listaRestaurantes.get(i).getHorario()%></div>
+                <div id="getHorario"><strong>Horario de atencion: </strong><%=listaRestaurantes.get(i).getHorario()%></div>
 
-            <div id="getTipoComida"><strong>Tipo principal de comida: </strong><%=listaRestaurantes.get(i).getTipoComida()%></div>
-             <h1 class="titulos" style="opacity: .70">Comentarios</h1>
-        </div>
+                <div id="getTipoComida"><strong>Tipo principal de comida: </strong><%=listaRestaurantes.get(i).getTipoComida()%></div>
+               
+                
+                
+                <h1 class="titulos" style="opacity: .70; position: absolute; top: 185%;">Comentarios </h1>
+                <h1 class="titulos" style="opacity: .70; position: absolute; top: 185%; left: 60%;">Recomendaciones</h1>
+            </div>
 
-        <%}%>
-        
-        <%
-           
-            for (int i = 0; i < listaComentarios.size(); i++) {
-                int num  = listaComentarios.get(i).getUsuario();
-              String nombre =  conexion.buscarNombrePorId(num);
-                System.out.println(num);
-        %>
-             <div id="campoComentarios" style="color: white">
+            <%}%>
 
-            <h1 class="titulos" style="opacity: .70"><%=nombre%></h1>
-             <div id="getDescripcion"><strong>Usuario #: </strong><%=num%></div>
-            <div id="getDescripcion"><strong>Comentario: </strong><%=listaComentarios.get(i).getTextoComentario()%></div>
+            <%
 
-            <div id="getDireccion"><strong>Fecha: </strong><%=listaComentarios.get(i).getFecha()%></div>
+                for (int i = 0; i < listaComentarios.size(); i++) {
+                    int num = listaComentarios.get(i).getUsuario();
+                    String tipo;
+                    String nombre = conexion.buscarNombrePorId(num);
+                    System.out.println(num);
+                    if (listaComentarios.get(i).getCodTipo() == 1) {
 
-            
-             </div>
-<%}%>
+                        tipo = "Comentario";
+
+            %>
+            <div id="campoComentarios" style="color: white">
+
+                <h1 class="titulos" style="opacity: .70"><%=nombre%></h1>
+                <div id="getId" style="color: red"><strong>Tipo: </strong><%=tipo%></div>
+                <div id="getDescripcion"><strong>Usuario #: </strong><%=num%></div>
+                <div id="getDescripcion"><strong>Comentario: </strong><%=listaComentarios.get(i).getTextoComentario()%></div> 
+                <div id="getDireccion"><strong>Fecha: </strong><%=listaComentarios.get(i).getFecha()%></div>
+
+
+            </div>
+            <%} else {
+                tipo = "Recomendacion";
+
+            %>
+            <div id="campoRecomendacion" style=" position: relative;
+                 top: -44%;
+                 left: 50%;
+                 height: 60%;
+                 width: 45%;
+                 padding-left: 10%;
+                 border-bottom: double;
+                 border-color: orange;
+                 border-top: double;
+                 margin: 5%;">
+
+                <h1 class="titulos" style="opacity: .70"><%=nombre%></h1>
+                <div id="getId" style="color: red"><strong>Tipo: </strong><%=tipo%></div>
+                <div id="getDescripcion"><strong>Usuario # </strong><%=num%> Ha hecho la siguiente recomendacion:</div>
+                <div id="getDescripcion"><strong>Comentario: </strong><%=listaComentarios.get(i).getTextoComentario()%></div> 
+                <div id="getDireccion"><strong>Fecha: </strong><%=listaComentarios.get(i).getFecha()%></div>
+
+
+            </div>
+
+            <% }
+                }%>
+
+
         </section>
     </body>
 </html>

@@ -21,10 +21,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author Valentina
- */
+
 public class Conexion {
 
     Connection conexion;
@@ -36,7 +33,7 @@ public class Conexion {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/proyecto?user=root&password=1234");
+            conexion = DriverManager.getConnection("jdbc:mysql://localhost:3307/proyecto?user=root&password=12345");
             statement = conexion.createStatement();
         } catch (ClassNotFoundException ex) {
             System.out.println("Clase no encontrada");
@@ -74,7 +71,6 @@ public class Conexion {
             while (resultado.next()) {
                 idU = resultado.getInt(1);
 
-               
             }
             resultado.close();
 
@@ -106,11 +102,6 @@ public class Conexion {
         return tipoU;
     }
 
-//    public static void main(String[] args) {
-//        Conexion c=new Conexion();
-//        Usuario s=new  Usuario("vale", "lindarte", "lau", 33333, "vale@gmail.com", "2345");
-//        c.agregarUsuario(s);
-//    }
     public void agregarRestaurante(Restaurante restaurante) throws FileNotFoundException, IOException {
         try {
             agregar = conexion.prepareStatement("insert into restaurante (nom_restaurante,descripcion,direccion,telefono,hora_inicio,hora_fin,horario,tipo_comida,imagen) values(?,?,?,?,?,?,?,?,?)");
@@ -133,13 +124,12 @@ public class Conexion {
         }
 
     }
-        
 
     public String buscarNombrePorId(int id) {
-        System.out.println("Llego"+id);
+        System.out.println("Llego" + id);
         String nom = null;
         try {
-            resultado  = statement.executeQuery("select nom_usuario from usuario where cod_usuario='" + id + "'");
+            resultado = statement.executeQuery("select nom_usuario from usuario where cod_usuario='" + id + "'");
             while (resultado.next()) {
                 nom = resultado.getString(1);
 
@@ -157,15 +147,13 @@ public class Conexion {
 
     public void agregarComentarios(Comentario comentarios) throws FileNotFoundException, IOException {
         try {
-            agregar = conexion.prepareStatement("insert into comentario (cod_usuario,cod_restaurante,d_comentario,fecha) values (?,?,?,?)");
+            agregar = conexion.prepareStatement("insert into comentario (cod_usuario,cod_restaurante,d_comentario,fecha,cod_tipoComentario) values (?,?,?,?,?)");
             agregar.setInt(1, comentarios.getUsuario());
-           // System.out.println("id usuario :" + comentarios.getUsuario());
             agregar.setInt(2, comentarios.getCodRes());
-            //System.out.println("id res: " + comentarios.getCodRes());
             agregar.setString(3, comentarios.getTextoComentario());
-            //System.out.println("text:" + comentarios.getTextoComentario());
             agregar.setString(4, comentarios.getFecha());
-            //System.out.println("fecha:" + comentarios.getFecha());
+            agregar.setInt(5, comentarios.getCodTipo());
+
             agregar.executeUpdate();
             agregar.close();
             System.out.println("se agrego el comentario");
@@ -187,10 +175,6 @@ public class Conexion {
             while (resultado.next()) {
                 String nom = resultado.getString(1);
                 String cont = resultado.getString(2);
-
-              //  System.out.println("aqui usuario:" + nom + " contraseña:" + cont);
-               // System.out.println("se encontro");
-
                 us.setNomUsuario(usuario);
                 us.setContraseña(contra);
                 x = "true";
@@ -206,10 +190,8 @@ public class Conexion {
     public ArrayList mostrarRestaurante() {
         ArrayList<Restaurante> listaRestaurantes = new ArrayList<>();
         try {
-
             resultado = statement.executeQuery("select * from  RESTAURANTE");
             while (resultado.next()) {
-
                 Restaurante res = new Restaurante();
                 res.setId(resultado.getInt(1));
                 res.setNombre(resultado.getString(2));
@@ -222,7 +204,6 @@ public class Conexion {
                 res.setTipoComida(resultado.getString(9));
                 res.setImagen(resultado.getString(10));
                 listaRestaurantes.add(res);
-
             }
             resultado.close();
         } catch (SQLException ex) {
@@ -265,13 +246,14 @@ public class Conexion {
         ArrayList<Comentario> listaComentarios = new ArrayList<>();
         try {
 
-            resultado = statement.executeQuery("select cod_usuario,d_comentario,fecha from  COMENTARIO where cod_restaurante=" + id);
+            resultado = statement.executeQuery("select cod_usuario,d_comentario,fecha,cod_tipoComentario from  COMENTARIO where cod_restaurante=" + id);
             while (resultado.next()) {
 
                 Comentario com = new Comentario();
                 com.setUsuario(resultado.getInt(1));
                 com.setTextoComentario(resultado.getString(2));
                 com.setFecha(resultado.getString(3));
+                com.setCodTipo(resultado.getInt(4));
                 listaComentarios.add(com);
 
             }

@@ -67,9 +67,8 @@
             <ul>
 
                 <li><a href="restaurantesNuevos.jsp">Restaurantes</a></li>
-                <li><a href="agregarComentarios.jsp">Comentar</a></li>
-                <li> <a href="calificacion.jsp">Calificar</a></li>
-                <li><a href="">Recomendar</a></li>
+                <li><a href="agregarComentarios.jsp">Comentar o recomendar</a></li>
+              
             </ul>
         </aside>
         <section>
