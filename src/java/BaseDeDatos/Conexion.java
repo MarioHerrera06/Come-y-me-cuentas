@@ -2,6 +2,7 @@ package BaseDeDatos;
 
 import Datos.Comentario;
 import Datos.Restaurante;
+import Datos.TipoComida;
 import Datos.Usuario;
 import Servlet.AgregarRestauranteServlet;
 import static Servlet.AgregarRestauranteServlet.listaRestaurantes;
@@ -104,7 +105,7 @@ public class Conexion {
 
     public void agregarRestaurante(Restaurante restaurante) throws FileNotFoundException, IOException {
         try {
-            agregar = conexion.prepareStatement("insert into restaurante (nom_restaurante,descripcion,direccion,telefono,hora_inicio,hora_fin,horario,tipo_comida,imagen) values(?,?,?,?,?,?,?,?,?)");
+            agregar = conexion.prepareStatement("insert into restaurante (nom_restaurante,descripcion,direccion,telefono,hora_inicio,hora_fin,horario,cod_tipo_comida,imagen) values(?,?,?,?,?,?,?,?,?)");
             agregar.setString(1, restaurante.getNombre());
             agregar.setString(2, restaurante.getDescripcion());
             agregar.setString(3, restaurante.getDireccion());
@@ -112,7 +113,7 @@ public class Conexion {
             agregar.setLong(5, restaurante.getHoraInicio());
             agregar.setLong(6, restaurante.getHoraFin());
             agregar.setString(7, restaurante.getHorario());
-            agregar.setString(8, restaurante.getTipoComida());
+            agregar.setInt(8, restaurante.getIdtipoComida());
             agregar.setString(9, restaurante.getImagen());
             agregar.executeUpdate();
             agregar.close();
@@ -201,7 +202,7 @@ public class Conexion {
                 res.setHorario(resultado.getString(8));
                 res.setHoraInicio(resultado.getInt(6));
                 res.setHoraFin(resultado.getInt(7));
-                res.setTipoComida(resultado.getString(9));
+                res.setIdtipoComida(resultado.getInt(9));
                 res.setImagen(resultado.getString(10));
                 listaRestaurantes.add(res);
             }
@@ -229,7 +230,7 @@ public class Conexion {
                 res.setHorario(resultado.getString(8));
                 res.setHoraInicio(resultado.getInt(6));
                 res.setHoraFin(resultado.getInt(7));
-                res.setTipoComida(resultado.getString(9));
+                res.setIdtipoComida(resultado.getInt(9));
                 res.setImagen(resultado.getString(10));
                 listaRestaurantes.add(res);
 
@@ -265,11 +266,11 @@ public class Conexion {
 
     }
 
-    public ArrayList mostrarRestauranteRandom(String tipoComida) {
+    public ArrayList mostrarRestauranteRandom(int id) {
         ArrayList<Restaurante> listaRestaurantes = new ArrayList<>();
         try {
 
-            resultado = statement.executeQuery("SELECT * FROM RESTAURANTE WHERE TIPO_COMIDA='" + tipoComida + "'");
+            resultado = statement.executeQuery("SELECT * FROM RESTAURANTE WHERE COD_TIPO_COMIDA=" + id);
             while (resultado.next()) {
 
                 Restaurante res = new Restaurante();
@@ -281,7 +282,7 @@ public class Conexion {
                 res.setHorario(resultado.getString(8));
                 res.setHoraInicio(resultado.getInt(6));
                 res.setHoraFin(resultado.getInt(7));
-                res.setTipoComida(resultado.getString(9));
+                res.setIdtipoComida(resultado.getInt(9));
                 res.setImagen(resultado.getString(10));
 
                 listaRestaurantes.add(res);
@@ -311,7 +312,7 @@ public class Conexion {
                 res.setHorario(resultado.getString(8));
                 res.setHoraInicio(resultado.getInt(6));
                 res.setHoraFin(resultado.getInt(7));
-                res.setTipoComida(resultado.getString(9));
+                res.setIdtipoComida(resultado.getInt(9));
                 res.setImagen(resultado.getString(10));
 
                 listaRestaurantes.add(res);
@@ -325,4 +326,80 @@ public class Conexion {
 
     }
 
+      public void agregarTipoComida(TipoComida comida) throws FileNotFoundException, IOException {
+        try {
+            agregar = conexion.prepareStatement("insert into tipoComida (nom_tipo_comida) values (?)");
+            agregar.setString(1,comida.getNombreTipoComida());
+            agregar.executeUpdate();
+            agregar.close();
+            System.out.println("se agrego el tipo de comida");
+        } catch (SQLException ex) {
+
+            System.out.println("No se pudo agregar el tipo de comida");
+        }
+    }
+      
+       public int buscarComidaPorNombre(String comida) {
+        System.out.println("Llego" + comida);
+        int nom = 0;
+        try {
+            resultado = statement.executeQuery("select cod_tipo_comida from tipoComida where nom_tipo_comida=" + comida );
+            while (resultado.next()) {
+                nom = resultado.getInt(1);
+
+                System.out.println("aqui tipoComida:" + nom);
+            }
+            resultado.close();
+            System.out.println("Se encontro el tipoComida");
+        } catch (SQLException ex) {
+
+            System.out.println("No se encontro el nombre");
+        }
+
+        return nom;
+    }
+
+       
+       
+       
+        public ArrayList mostrarTiposComida(int id) {
+        ArrayList<TipoComida> listaTipoComida = new ArrayList<>();
+        try {
+
+            resultado = statement.executeQuery("select cod_tipo_comida,nom_tipo_comida from  tipoComida where cod_tipo_comida=" + id);
+            while (resultado.next()) {
+
+                TipoComida com = new TipoComida();
+                com.setIdTipoComida(resultado.getInt(1));
+                com.setNombreTipoComida(resultado.getString(2));
+                
+                listaTipoComida.add(com);
+
+            }
+            resultado.close();
+        } catch (SQLException ex) {
+
+        }
+        return listaTipoComida;
+
+    }
+        
+        public ArrayList mostrarTipoComida() {
+        ArrayList<TipoComida> listaTipoComida = new ArrayList<>();
+        try {
+            resultado = statement.executeQuery("select * from  TipoComida");
+            while (resultado.next()) {
+                TipoComida res = new TipoComida();
+                res.setIdTipoComida(resultado.getInt(1));
+                res.setNombreTipoComida(resultado.getString(2));
+               
+                listaTipoComida.add(res);
+            }
+            resultado.close();
+        } catch (SQLException ex) {
+
+        }
+        return listaTipoComida;
+
+    }
 }

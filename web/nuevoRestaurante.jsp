@@ -54,7 +54,7 @@ if(actual == null){
             </tr>
             <tr> 
                 <td>Telefono :</td>
-                <td><input type="number" name="telefono" required=""></td>
+                <td><input type="number" name="telefono" required="" min='0'></td>
             </tr>
             <tr>
                 <td>Hora apertura:</td>
@@ -157,7 +157,7 @@ if(actual == null){
             <script>
                 
                 function  myFunction() {
-                     x= "<input "+"type="+"text"+"name="+"otro"+">";
+                     x= "<input "+"type="+"text "+"name="+"otro"+">";
                    document.getElementById("demo").innerHTML=x;
                 
                 }

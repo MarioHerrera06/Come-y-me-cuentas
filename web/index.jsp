@@ -1,5 +1,6 @@
 
 
+<%@page import="Datos.TipoComida"%>
 <%@page import="Datos.Restaurante"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="BaseDeDatos.Conexion"%>
@@ -50,27 +51,32 @@
                 if (sesion.getAttribute("tipoUsuario") != null) {
                     Integer num = (Integer) sesion.getAttribute("tipoUsuario");
                     if (num == 1) {
-                        out.println(" <li><a href=\"nuevoRestaurante.jsp\">Agregar Restaurante</a></li>");
+                        out.println(" <li ><a href=\"nuevoRestaurante.jsp\">Agregar Restaurante</a></li>");
                     }
                 }
             %> 
 
-            <h2 class="titulos"> Tipos de comida: </h2>
-            <ul>
+          <h2 class="titulos"> Tipos de comida: </h2>
+            <ul style="border-bottom: double; border-color: orange; padding-bottom: 5%;">
+                 <% Conexion conec2 = new Conexion();
+                ArrayList<TipoComida> listaRestaurantes2 = conec2.mostrarTipoComida();
+                for (int i = 0; i < listaRestaurantes2.size(); i++) {
+                    
+                    TipoComida res = listaRestaurantes2.get(i);
+                    %>
+                    <div>         
+                        <li>  <a href="mostrarTipoComida.jsp?id=<%=res.getIdTipoComida()%>"><%=res.getNombreTipoComida()%></a></li>
+                    </div>        
+          
 
-                <li><a href="Mexicana.jsp">Mexicana</a></li>
-                <li><a href="China.jsp">China</a></li>
-                <li><a href="Italiana.jsp">Italiana</a></li>
-                <li><a href="Francesa.jsp">Francesa</a></li>
-                <li><a href="Americana.jsp">Americana</a></li>
-                <li><a href="ComidaRapida.jsp">Comida rapida</a></li>
+            <%}%>
 
             </ul> 
             <ul>
 
                 <li><a href="restaurantesNuevos.jsp">Restaurantes</a></li>
                 <li><a href="agregarComentarios.jsp">Comentar o recomendar</a></li>
-              
+               
             </ul>
         </aside>
 

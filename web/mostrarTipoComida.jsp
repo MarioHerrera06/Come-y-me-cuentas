@@ -1,8 +1,15 @@
+<%-- 
+    Document   : Mexicana
+    Created on : 09-abr-2017, 17:04:11
+    Author     : Produccion
+--%>
+
 
 <%@page import="Datos.TipoComida"%>
-<%@page import="java.util.ArrayList"%>
 <%@page import="Datos.Restaurante"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="BaseDeDatos.Conexion"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
@@ -23,10 +30,8 @@
     }
     if (actual == null) {
         response.sendRedirect("login.jsp");
-    } else {
-        if (actual.getAttribute("logueado") == null) {
-            response.sendRedirect("login.jsp");
-        }
+    } else if (actual.getAttribute("logueado") == null) {
+        response.sendRedirect("login.jsp");
     }
 
 %>
@@ -34,18 +39,13 @@
 
     <%@include file="header.jsp" %>
     <%@include file="nav.jsp" %>
-    
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="styles/Style.css" rel="stylesheet" type="text/css" >
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <title>Restaurantes</title>
-    </head>
 
+    <link href="styles/Style.css" rel="stylesheet" type="text/css" >
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title >Come y me cuentas</title>
     <body>
-           <aside>
-            <%
-                HttpSession sesion = request.getSession();
+        <aside>
+            <%                HttpSession sesion = request.getSession();
                 if (sesion.getAttribute("tipoUsuario") != null) {
                     Integer num = (Integer) sesion.getAttribute("tipoUsuario");
                     if (num == 1) {
@@ -56,44 +56,46 @@
 
             <h2 class="titulos"> Tipos de comida: </h2>
             <ul style="border-bottom: double; border-color: orange; padding-bottom: 5%;">
-                 <% Conexion conec2 = new Conexion();
-                ArrayList<TipoComida> listaRestaurantes2 = conec2.mostrarTipoComida();
-                for (int i = 0; i < listaRestaurantes2.size(); i++) {
-                    
-                    TipoComida res = listaRestaurantes2.get(i);
-                    %>
-                    <div>         
-                        <li>  <a href="mostrarTipoComida.jsp?id=<%=res.getIdTipoComida()%>"><%=res.getNombreTipoComida()%></a></li>
-                    </div>        
-          
+                <% Conexion conec2 = new Conexion();
+                    ArrayList<TipoComida> listaRestaurantes2 = conec2.mostrarTipoComida();
+                    for (int i = 0; i < listaRestaurantes2.size(); i++) {
 
-            <%}%>
+                        TipoComida res = listaRestaurantes2.get(i);
+                %>
+                <div>         
+                    <li>  <a href="mostrarTipoComida.jsp?id=<%=res.getIdTipoComida()%>"><%=res.getNombreTipoComida()%></a></li>
+                </div>        
+
+
+                <%}%>
 
             </ul> 
             <ul>
 
                 <li><a href="restaurantesNuevos.jsp">Restaurantes</a></li>
                 <li><a href="agregarComentarios.jsp">Comentar o recomendar</a></li>
-               
+
             </ul>
         </aside>
         <section>
             <h1>Restaurantes </h1>
+
             <% Conexion conec = new Conexion();
-                ArrayList<Restaurante> listaRestaurantes = conec.mostrarRestaurante();
+                int id2 = Integer.valueOf(request.getParameter("id"));
+                ArrayList<Restaurante> listaRestaurantes = conec.mostrarRestauranteRandom(id2);
                 for (int i = 0; i < listaRestaurantes.size(); i++) {
-                    
-                    Restaurante res = listaRestaurantes.get(i);
-                    %>
-                    <div id="campoRestaurante">
-                        
-                                <h1><%=res.getNombre()%></h1>
-                                <div class="imgcontainer">
-                                    <img class="imagen" src="img/<%=res.getImagen()%>" >
-                                </div>
-                                    <a href="mostrarRestaurantes.jsp?id=<%=res.getId()%>">Ver informacion completa</a>
-                    </div>        
-          
+
+                    Restaurante res = listaRestaurantes.get(i);%>
+
+            <div id="campoRestaurante">
+
+                <h1><%=res.getNombre()%></h1>
+                <div class="imgcontainer">
+                    <img class="imagen" src="img/<%=res.getImagen()%>" >
+                </div>
+                <a href="mostrarRestaurantes.jsp?id=<%=res.getId()%>">Ver informacion completa</a>
+            </div>  
+
 
             <%}%>
 
@@ -103,6 +105,4 @@
 
 
 
-
 </html>
-

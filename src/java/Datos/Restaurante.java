@@ -18,7 +18,7 @@ public class Restaurante {
     private int horaInicio;
     private int horaFin;
     private String horario;
-    private String tipoComida;    
+    private int idtipoComida;    
     private String descripcion;
     private String  imagen;
     
@@ -26,7 +26,7 @@ public class Restaurante {
     public static ArrayList<Comentario> listaComentarios;
 
     public Restaurante(){}
-    public Restaurante(String nombre, String direccion, int telefono, int horaInicio, int horaFin, String horario,String tipoComida,String descripcion
+    public Restaurante(String nombre, String direccion, int telefono, int horaInicio, int horaFin, String horario,int idtipoComida,String descripcion
     ) {
         this.nombre = nombre;
         this.direccion = direccion;
@@ -34,7 +34,7 @@ public class Restaurante {
         this.horaInicio = horaInicio;
         this.horaFin = horaFin;
         this.horario = horario;
-        this.tipoComida=tipoComida;
+        this.idtipoComida=idtipoComida;
         this.descripcion = descripcion;
        
        
@@ -80,14 +80,15 @@ public class Restaurante {
         this.horario = horario;
     }
 
-    public String getTipoComida() {
-        return tipoComida;
+    public int getIdtipoComida() {
+        return idtipoComida;
     }
 
-    public void setTipoComida(String tipoComida) {
-        this.tipoComida = tipoComida;
+    public void setIdtipoComida(int idtipoComida) {
+        this.idtipoComida = idtipoComida;
     }
 
+  
     
 
     public int getId() {
