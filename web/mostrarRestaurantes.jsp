@@ -84,8 +84,8 @@
                
                 
                 
-                <h1 class="titulos" style="opacity: .70; position: absolute; top: 185%;">Comentarios </h1>
-                <h1 class="titulos" style="opacity: .70; position: absolute; top: 185%; left: 60%;">Recomendaciones</h1>
+                <h1 class="titulos" style="opacity: .70; position: absolute; top: 250%;">Comentarios </h1>
+                <h1 class="titulos" style="opacity: .70; position: absolute; top: 250%; left: 60%;">Recomendaciones</h1>
             </div>
 
             <%}%>
@@ -104,7 +104,7 @@
             %>
             <div id="campoComentarios" style="color: white">
 
-                <h1 class="titulos" style="opacity: .70"><%=nombre%></h1>
+                <h1 class="titulos" style=" opacity: .70"><%=nombre%></h1>
                 <div id="getId" style="color: red"><strong>Tipo: </strong><%=tipo%></div>
                 <div id="getDescripcion"><strong>Usuario #: </strong><%=num%></div>
                 <div id="getDescripcion"><strong>Comentario: </strong><%=listaComentarios.get(i).getTextoComentario()%></div> 
@@ -117,7 +117,7 @@
 
             %>
             <div id="campoRecomendacion" style=" position: relative;
-                 top: -44%;
+                 top: -113%;
                  left: 50%;
                  height: 60%;
                  width: 45%;

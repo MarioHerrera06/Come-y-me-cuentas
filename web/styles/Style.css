@@ -217,7 +217,7 @@ aside{
     position: absolute;
     left: 10%;
     top: 45%;
-    width: 20%;
+    width: 15%;
     height: 60%;
     border: orange;
     border-style: double;
@@ -325,7 +325,7 @@ nav{
 #campoComentarios{
     position: relative;
     top: 30%;
-    height: 60%;
+    height: 130%;
     width: 45%;
     padding-left: 10%;
     border-bottom: double;
@@ -339,7 +339,7 @@ nav{
 
 #campoRestaurante{
    
-    height: 160%;
+    height: 240%;
     width: 80%;
     padding-left: 10%;
     border-bottom: double;

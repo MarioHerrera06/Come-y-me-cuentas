@@ -57,16 +57,17 @@
             %> 
 
           <h2 class="titulos"> Tipos de comida: </h2>
-            <ul style="border-bottom: double; border-color: orange; padding-bottom: 5%;">
+          <ul style="border-bottom: double; border-color: orange; padding-bottom: 5%;">
                  <% Conexion conec2 = new Conexion();
                 ArrayList<TipoComida> listaRestaurantes2 = conec2.mostrarTipoComida();
                 for (int i = 0; i < listaRestaurantes2.size(); i++) {
                     
                     TipoComida res = listaRestaurantes2.get(i);
                     %>
+                   
                     <div>         
                         <li>  <a href="mostrarTipoComida.jsp?id=<%=res.getIdTipoComida()%>"><%=res.getNombreTipoComida()%></a></li>
-                    </div>        
+                    </div>      
           
 
             <%}%>
@@ -114,25 +115,7 @@
             <button class="botonIzquierda" onclick="plusDivs(-1)">&#10094;</button>
             <button class="botonDerecha" onclick="plusDivs(+1)">&#10095;</button>
 
-            <h1 class="titulos" style="opacity: .70;">Todos los restaurantes</h1>
-
-            <% Conexion conec = new Conexion();
-
-                ArrayList<Restaurante> listaRestaurantes = conec.mostrarRestaurante();
-                System.out.println(listaRestaurantes.size());
-                for (int i = 0; i < listaRestaurantes.size(); i++) {
-
-            %>
-
-            <div id="listaRestaurantesIndex">
-                <ul>
-                    <li  id="listaPrincipal" type="disc" "><a><%=listaRestaurantes.get(i).getNombre()%></a></li>
-                </ul>
-            </div>
-            <%}%>
-
-
-
+           
 
 
             <script>
