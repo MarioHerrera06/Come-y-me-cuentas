@@ -89,21 +89,21 @@
             <div class="cajaImagenes">
 
                 <div class="mySlides">
-                    <a href="ElCorral.jsp"><img src="img/Corral.jpg" alt="" style="width:100%" ></a>                   
+                    <a href="mostrarRestaurantes.jsp?id=1"><img src="img/Corral.jpg" alt="" style="width:100%" ></a>                   
                     <div class="textoImagen">
                         El corral
                     </div>
                 </div>
 
                 <div class="mySlides">
-                    <a href="Hard Rock Cafe.jsp"><img src="img/HardRock.png" alt="" style="width:100%" ></a>    
+                    <a href="mostrarRestaurantes.jsp?id=2"><img src="img/HardRock.png" alt="" style="width:100%" ></a>    
                     <div class="textoImagen">
                         HardRock
                     </div>
                 </div>
 
                 <div class="mySlides">
-                    <a href="Crepes.jsp"><img src="img/Crepes.jpg" alt="" style="width:100%" ></a>    
+                    <a href="mostrarRestaurantes.jsp?id=3"><img src="img/Crepes.jpg" alt="" style="width:100%" ></a>    
                     <div class="textoImagen">
                         Crepes And Waffles
                     </div>

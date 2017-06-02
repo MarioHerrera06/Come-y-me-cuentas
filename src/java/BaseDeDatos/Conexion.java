@@ -4,11 +4,6 @@ import Datos.Comentario;
 import Datos.Restaurante;
 import Datos.TipoComida;
 import Datos.Usuario;
-import Servlet.AgregarRestauranteServlet;
-import static Servlet.AgregarRestauranteServlet.listaRestaurantes;
-import static Servlet.AgregarRestauranteServlet.request;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.Connection;
@@ -18,10 +13,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.servlet.http.HttpSession;
-
 
 public class Conexion {
 
